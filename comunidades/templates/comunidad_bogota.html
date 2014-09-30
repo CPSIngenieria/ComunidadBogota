@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Comunidad Bogota</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'bogota/css/normalize.css' %}" />
+	<link rel="stylesheet" href="{% static 'bogota/css/iconos.css' %}" />
+	<link rel="stylesheet" href="{% static 'bogota/css/comunidad_bogota.css' %}" />
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="{% static 'bogota/js/comunidad_bogota.js' %}"></script>
+</head>
+<body>
+	<div id="Contenedor">
+		<header id="Encabezado">
+			<a href="#">
+				<h1>
+					<figure id="Logo-comunidad-bogota">
+						<img src="{% static 'bogota/imagenes/comunidad_bogota_logo.png' %}" alt="" width="305" />
+					</figure>
+				</h1>
+			</a>
+		</header>
+		<section id="Banner">
+			<article id="Contenedor-banner">
+				<figure id="Fondo-banner">
+					<img src="{% static 'bogota/imagenes/bogota2.jpg' %}" alt="" width="1500">
+				</figure>
+				<figure class="imagen-banner" id="Banner1">
+					<img src="{% static 'bogota/imagenes/BannerFlu.jpg' %}" alt="" width="1500">
+				</figure>
+				<figure class="imagen-banner" id="Banner2">
+					<img src="{% static 'bogota/imagenes/bogota.jpg' %}" alt="" width="1500">
+				</figure>
+				<figure class="imagen-banner" id="Banner3">
+					<img src="{% static 'bogota/imagenes/bogota.jpg' %}" alt="" width="1500">
+				</figure>
+			</article>
+			<div id="Barra-banner">
+				<div class="indicador" id='Indicador1'></div>
+				<div class="indicador" id='Indicador2'></div>
+				<div class="indicador" id='Indicador3'></div>
+				<div id="Pestana-derecha"></div>
+				<div id="Pestana-izquierda"></div>
+			</div>
+		</section>
+		<section id="Buscador">
+			<figure id="Rupert">
+				<img src="{% static 'bogota/imagenes/Rupert.png' %}" alt="" />
+			</figure>
+			<section id="App">
+				<section id="Filtro">
+					<article id="Filtro-comunidad" class="filtro">
+						<h2>Selecciona una comunidad</h2>
+						<input list="comunidades" placeholder="Todas">
+						<datalist id="comunidades">
+							{% for c in comunidades %}
+							<option value="{{c.nombre}}">
+							{% endfor %}
+						</datalist> 
+					</article>		
+					<article id="Filtro-palabra-clave">
+						<input list="palabras-clave" placeholder="Que deseas encontrar?">
+						<datalist id="palabras-clave">
+							{% for p in palabras_clave %}
+							<option value="{{p.descripcion}}">
+							{% endfor %}
+						</datalist> 
+					</article>
+				</section>
+				<section id="Resultados">
+					<h3 id="Sin-resultados">Aun no hay resultados</h3>
+				</section>	
+			</section>
+		</section>
+		<section id="Redes-sociales">
+			<h2>Buscanos tambien en redes sociales</h2>
+		</section>
+	</div>
+</body>
+</html>

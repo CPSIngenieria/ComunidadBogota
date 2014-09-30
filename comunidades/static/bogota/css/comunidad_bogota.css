@@ -1,0 +1,545 @@
+body
+{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+
+h1, figure, h2, h3
+{
+	margin: 0;
+	padding: 0;
+}
+
+#App
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+}
+
+#Banner
+{
+	position: relative;
+	width: 100%;
+}
+
+#Banner1
+{
+	-webkit-animation: animacionBannerOne 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionBannerOne 15s infinite;
+	width: 100%;
+}
+
+#Banner2
+{
+	-webkit-animation: animacionBannerTwo 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionBannerTwo 15s infinite;
+	width: 100%;
+}
+
+#Banner3
+{
+	-webkit-animation: animacionBannerThree 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionBannerThree 15s infinite;
+	width: 100%;
+}
+
+#Barra-banner
+{
+	background: linear-gradient(90deg, #6F9F0B 0%, #a7b244 50%, #6F9F0B 100%);
+	border-radius: 1em 1em 0 0;
+	bottom: 8px;
+	height: 30px;
+	position: absolute;
+	right: 50px;
+	width: 200px;
+}
+
+#Buscador
+{
+	background: linear-gradient( #2a8fbd 50%, #03456C);
+}
+
+#Contenedor
+{
+	overflow: hidden;
+	width: 100%;
+}
+
+#Contenedor-banner
+{
+	background: #2a8fbd;
+	padding: 1rem 0;
+	position: relative;
+	width: 100%;
+}
+
+#Encabezado
+{
+	background: linear-gradient(#AEC94B 50%, #C7F464);
+}
+
+#Filtro
+{
+	background: linear-gradient(#ffaa00 30%, #edc951);
+	border-radius: 1em;
+	border: 4px solid #ffaa00;
+	margin: 2em;
+	padding: 0.2em;
+	box-shadow: 1px 1px 3px black inset;
+}
+
+#Filtro-palabra-clave
+{
+	margin: 0.5em 0;
+}
+
+#Filtro-palabra-clave input
+{
+	border-radius: 0.5em;
+	font-size: 1.5rem;
+	padding: 0.4em;
+	text-align: center;
+	width: 65%;
+}
+
+#Fondo-banner
+{
+	font-size: 0px;
+	width: 100%;
+	z-index: -2;
+}
+
+#Fondo-banner img
+{
+	width: 100%;
+}
+
+#Indicador1
+{
+	-webkit-animation: animacionIndicadorOne 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionIndicadorOne 15s infinite;
+}
+
+#Indicador2
+{
+	-webkit-animation: animacionIndicadorTwo 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionIndicadorTwo 15s infinite;
+}
+
+#Indicador3
+{
+	-webkit-animation: animacionIndicadorThree 15s infinite; /* Chrome, Safari, Opera */
+    animation: animacionIndicadorThree 15s infinite;
+}
+
+#Logo-comunidad-bogota
+{
+	padding: 0.2em 0.2em 0 0.2em;
+}
+
+#Logo-comunidad-bogota img
+{
+	max-width: 400px;
+	width: 100%;
+}
+
+#Pestana-derecha
+{
+	border-bottom: 4px transparent solid;
+	border-left: 4px transparent solid;
+	border-right: 4px #C7F464 solid;
+	border-top: 4px #C7F464 solid;
+	bottom: 0px;
+	height: 0px;
+	left: -8px;
+	position: absolute;
+	width: 0px;
+	z-index: 0;
+}
+
+#Pestana-izquierda
+{
+	border-bottom: 4px transparent solid;
+	border-left: 4px #C7F464 solid;
+	border-right: 4px transparent solid;
+	border-top: 4px #C7F464 solid;
+	bottom: 0px;
+	height: 0px;
+	position: absolute;
+	right: -8px;
+	width: 0px;
+}
+
+#Resultados
+{
+	padding: 1em;
+	position: relative;
+}
+
+#Rupert
+{
+	display: inline-block;
+	position: relative;
+	top: -6.5em;
+	vertical-align: top;
+	width: 33%;
+}
+
+#Rupert img
+{
+	width: 100%;
+}
+
+#Sin-resultados
+{
+	background: linear-gradient(#7FAF1B 60%, #C7F464);
+	border-radius: 0.5em;
+	border: 4px solid #7FAF1B;
+	color: white;
+	padding: 0.4em;
+}
+
+.comunidad
+{
+	background: #2e4051;
+	border-radius: 0.5em;
+	color: white;
+	display: inline-block;
+	font-size: 0.8em;
+	margin: 0.1em 0.7em;
+	padding: 0.2em 0.4em;
+	position: relative;
+	top: -6px;
+	box-shadow: 1px 1px 1px black;
+}
+
+.filtro
+{
+	display: inline-block;
+	margin: 0.2em;
+	vertical-align: top;
+}
+
+.filtro h2
+{
+	color: white;
+	margin: 0.1em 0;
+}
+
+.filtro input
+{
+	text-align: center;
+	border-radius: 0.4em;
+}
+
+.imagen-banner
+{
+	box-shadow: 2px 1px 10px black;
+	font-size: 0px;
+	position: absolute;
+	top: 1rem;
+	transition: all ease 0.5s;
+	width: 100%;
+}
+
+.imagen-banner img
+{
+	width: 100%;
+}
+
+.indicador
+{
+	background: white;
+	border-radius: 8px;
+	display: inline-block;
+	height: 16px;
+	margin: 0.4em;
+	transition: all ease 0.2s;
+	width: 16px;
+}
+
+.info-adicional
+{
+	display: none;
+}
+
+.link-social
+{
+	padding: 0.1em;
+	margin: 0.1em 0.2em;
+	border-radius: 0.4em;
+	width: 20%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	font-size: 0.9em;
+	color: white;
+	box-shadow: 1px 1px 1px black;
+}
+
+.link-social a
+{
+	color: white;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+.resultado
+{
+	margin-bottom: 2em;
+	position: relative;
+	text-align: left;
+}
+
+.resultado-informacion
+{
+	background: linear-gradient(#AEC94B 50%, #C7F464);
+	border-radius: 2em;
+	border: #a1c820 solid 5px;
+	box-shadow: 2px 2px 5px black, 1px 1px 4px #003333 inset;
+	padding: 0.7em 1.5em;
+	width: 85%;
+}
+
+.resultado-logo
+{
+	background: white;
+	border-radius: 5em;
+	border: #ff8800 solid 5px;
+	box-shadow: 1px 1px 5px black, 1px 1px 5px black inset;
+	height: 100px;
+	padding: 1.5em;
+	position: absolute;
+	right: 0;
+	top: -20px;
+	width: 100px;
+}
+
+.resultado-logo img
+{
+	max-height: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+.resultado-nombre
+{
+	color: #0b486b;
+	display: inline-block;
+	font-size: 1.8em;
+}
+
+.resultado-telefono
+{
+	color: white;
+	font-size: 1.5em;
+	display: inline-block;
+	padding-left: 0.1em; 
+}
+
+.resultado-celular
+{
+	color: white;
+	font-size: 1.5em;
+	display: inline-block;
+}
+
+.resultado-direccion
+{
+	color: white;
+	font-size: 1.5em;
+}
+
+.resultado-url
+{
+	background: #404040;
+}
+
+.resultado-facebook
+{
+	background: #3b5998; 
+}
+
+.resultado-twitter
+{
+	background: #55acee;
+}
+
+.resultado-youtube
+{
+	background: #e62117;
+}
+
+.resultado-descripcion
+{
+	margin: 0.2em 0px;
+	padding: 0;
+}
+
+.resultado-horario
+{
+	margin: 0.2em 0px;
+	padding: 0;
+}
+
+.sector
+{
+	background: #1b325f;
+	border-radius: 0.5em;
+	color: white;
+	display: inline-block;
+	font-size: 0.8em;
+	padding: 0.2em 0.4em;
+	position: relative;
+	top: -6px;
+	box-shadow: 1px 1px 1px black;
+}
+
+.ver-mas
+{
+	margin: 0.1em;
+	padding: 0;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+	body
+	{
+		color: red;
+	}
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animacionBannerOne {
+    0%   {left: 0%;}
+    30%   {left: 0%;}
+    33%  {left: -100%;}
+    60%  {left: -100%;}
+    66%  {left: -200%;}
+    97%  {left: -200%;}
+    100% {left: 0%;}
+}
+
+/* Standard syntax */
+@keyframes animacionBannerOne {
+    0%   {left: 0%;}
+    30%   {left: 0%;}
+    33%  {left: -100%;}
+    60%  {left: -100%;}
+    66%  {left: -200%;}
+    97%  {left: -200%;}
+    100% {left: 0%;}
+} 
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animacionBannerTwo {
+    0%   {left: 100%;}
+    30%   {left: 100%;}
+    33%  {left: 0%;}
+    60%  {left: 0%;}
+    66%  {left: -100%;}
+    97%  {left: -100%;}
+    100% {left: 100%;}
+}
+
+/* Standard syntax */
+@keyframes animacionBannerTwo {
+    0%   {left: 100%;}
+    30%   {left: 100%;}
+    33%  {left: 0%;}
+    60%  {left: 0%;}
+    66%  {left: -100%;}
+    97%  {left: -100%;}
+    100% {left: 100%;}
+} 
+
+@-webkit-keyframes animacionBannerThree {
+    0%   {left: 200%;}
+    30%   {left: 200%;}
+    33%  {left: 100%;}
+    60%  {left: 100%;}
+    66%  {left: 0%;}
+    97%  {left: 0%;}
+    100% {left: 200%;}
+}
+
+/* Standard syntax */
+@keyframes animacionBannerThree {
+    0%   {left: 200%;}
+    30%   {left: 200%;}
+    33%  {left: 100%;}
+    60%  {left: 100%;}
+    66%  {left: 0%;}
+    97%  {left: 0%;}
+    100% {left: 200%;}
+} 
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animacionIndicadorOne {
+    0%   {background: #ff6600;}
+    30%   {background: #ff6600;}
+    33%  {background: white;}
+    60%  {background: white;}
+    66%  {background: white;}
+    97%  {background: white;}
+    100% {background: #ff6600;}
+}
+
+/* Standard syntax */
+@keyframes animacionIndicadorOne {
+    0%   {background: #ff6600;}
+    30%   {background: #ff6600;}
+    33%  {background: white;}
+    60%  {background: white;}
+    66%  {background: white;}
+    97%  {background: white;}
+    100% {background: #ff6600;}
+} 
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes animacionIndicadorTwo {
+    0%   {background: white;}
+    30%  {background: white;}
+    33%  {background: #ff6600;}
+    60%  {background: #ff6600;}
+    66%  {background: white;}
+    97%  {background: white;}
+    100% {background: white;}
+}
+
+/* Standard syntax */
+@keyframes animacionIndicadorTwo {
+    0%   {background: white;}
+    30%  {background: white;}
+    33%  {background: #ff6600;}
+    60%  {background: #ff6600;}
+    66%  {background: white;}
+    97%  {background: white;}
+    100% {background: white;}
+} 
+
+@-webkit-keyframes animacionIndicadorThree {
+    0%   {background: white;}
+    30%  {background: white;}
+    33%  {background: white;}
+    60%  {background: white;}
+    66%  {background: #ff6600;}
+    97%  {background: #ff6600;}
+    100% {background: white;}
+}
+
+/* Standard syntax */
+@keyframes animacionIndicadorThree {
+    0%   {background: white;}
+    30%  {background: white;}
+    33%  {background: white;}
+    60%  {background: white;}
+    66%  {background: #ff6600;}
+    97%  {background: #ff6600;}
+    100% {background: white;}
+} 
