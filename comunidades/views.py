@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 from clientes.models import Cliente
 from palabras_clave.models import PalabraClave
+from banners.models import Banner
+
 from .models import Comunidad
 import json
 
@@ -12,7 +14,8 @@ def ComunidadBogotaView(request):
 
 	comunidades = Comunidad.objects.all()
 	palabras_clave = PalabraClave.objects.all()
-	argumentos = {'comunidades':comunidades, 'palabras_clave': palabras_clave}
+	banners = Banner.objects.filter( activo=True )[:3]
+	argumentos = {'comunidades':comunidades, 'palabras_clave': palabras_clave, 'banners':banners}
 	return render(request, 'comunidad_bogota.html', argumentos)
 
 def busqueda(request, comunidad, palabra_clave):

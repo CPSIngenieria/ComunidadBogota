@@ -78,7 +78,7 @@ function respuesta (data) {
 				html += "<div class='resultado-youtube link-social'><span class='icon-youtube'></span> <a href='" + data.clientes[c].enlace_youtube + "' target='_blank'>Youtube</a></div>";
 			}
 
-			html += "<p class='ver-mas'>Mas informacion</p>";
+			html += "<p class='ver-mas'>Más información</p>";
 			html += "<p class='resultado-descripcion info-adicional' >" + data.clientes[c].descripcion + "</p>";
 
 			if(data.clientes[c].inicio_horario_atencion && data.clientes[c].fin_horario_atencion){
@@ -96,7 +96,7 @@ function respuesta (data) {
 				}
 
 
-				html += "<p class='resultado-horario info-adicional' >Horario de atencion: " + data.clientes[c].inicio_horario_atencion + prefijo_horario_inicio + " - " + data.clientes[c].fin_horario_atencion + prefijo_horario_fin + "</p>";
+				html += "<p class='resultado-horario info-adicional' >Horario de atención: " + data.clientes[c].inicio_horario_atencion + prefijo_horario_inicio + " - " + data.clientes[c].fin_horario_atencion + prefijo_horario_fin + "</p>";
 			}
 
 			html += "</div></div>";

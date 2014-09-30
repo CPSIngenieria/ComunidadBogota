@@ -29,15 +29,11 @@
 				<figure id="Fondo-banner">
 					<img src="{% static 'bogota/imagenes/bogota2.jpg' %}" alt="" width="1500">
 				</figure>
-				<figure class="imagen-banner" id="Banner1">
-					<img src="{% static 'bogota/imagenes/BannerFlu.jpg' %}" alt="" width="1500">
+				{% for b in banners %}
+				<figure class="imagen-banner" id="{% cycle 'Banner1' 'Banner2' 'Banner3' %}">
+					<img src="{{b.archivo_banner.url}}" alt="" width="1500">
 				</figure>
-				<figure class="imagen-banner" id="Banner2">
-					<img src="{% static 'bogota/imagenes/bogota.jpg' %}" alt="" width="1500">
-				</figure>
-				<figure class="imagen-banner" id="Banner3">
-					<img src="{% static 'bogota/imagenes/bogota.jpg' %}" alt="" width="1500">
-				</figure>
+				{% endfor %}
 			</article>
 			<div id="Barra-banner">
 				<div class="indicador" id='Indicador1'></div>

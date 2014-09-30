@@ -28,21 +28,18 @@ h1, figure, h2, h3
 {
 	-webkit-animation: animacionBannerOne 15s infinite; /* Chrome, Safari, Opera */
     animation: animacionBannerOne 15s infinite;
-	width: 100%;
 }
 
 #Banner2
 {
 	-webkit-animation: animacionBannerTwo 15s infinite; /* Chrome, Safari, Opera */
     animation: animacionBannerTwo 15s infinite;
-	width: 100%;
 }
 
 #Banner3
 {
 	-webkit-animation: animacionBannerThree 15s infinite; /* Chrome, Safari, Opera */
     animation: animacionBannerThree 15s infinite;
-	width: 100%;
 }
 
 #Barra-banner
