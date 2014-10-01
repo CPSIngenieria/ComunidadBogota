@@ -16,6 +16,9 @@ def ComunidadBogotaView(request):
 	palabras_clave = PalabraClave.objects.all()
 	banners = Banner.objects.filter( activo=True )[:3]
 	argumentos = {'comunidades':comunidades, 'palabras_clave': palabras_clave, 'banners':banners}
+
+	# import ipdb; ipdb.set_trace()
+
 	return render(request, 'comunidad_bogota.html', argumentos)
 
 def busqueda(request, comunidad, palabra_clave):
