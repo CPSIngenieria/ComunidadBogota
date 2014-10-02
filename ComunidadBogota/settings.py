@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'au9my5qkgs$xalzq&6bhe5-4nv9ui(z+e@kn^v+!##z9t(+(os'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 GRAPPELLI_ADMIN_TITLE = 'Comunidad Bogota'
 
@@ -64,8 +64,12 @@ WSGI_APPLICATION = 'ComunidadBogota.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'CBdb',
+        'USER': 'andres',
+        'PASSWORD': 'Bl00dBath',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -92,6 +96,7 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "/root/ComunidadBogota/static/"
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
