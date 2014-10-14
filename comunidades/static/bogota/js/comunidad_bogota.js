@@ -49,14 +49,14 @@ function respuesta (data) {
 
 			html += "<article class='resultado'>";
 			html += "<div class='resultado-informacion'>";
-			html += "<h3 class='resultado-nombre'>" + data.clientes[c].razon_social + "</h3><span class='comunidad'>" + data.clientes[c].comunidad + "</span><br>";
+			html += "<h3 class='resultado-nombre'>" + data.clientes[c].razon_social + "</h3><br><span class='comunidad'>" + data.clientes[c].comunidad + "</span><br>";
 			
 			if(data.clientes[c].telefono){
 				html += "<h3 class='resultado-telefono'><span class='icon-phone-outline'></span> " + data.clientes[c].telefono + "</h3>";
 			}
 
 			if(data.clientes[c].celular){
-				html += "<h3 class='resultado-celular'>/<span class='icon-device-phone'></span> " + data.clientes[c].celular + "</h3>";
+				html += "<h3 class='resultado-celular'><span class='icon-device-phone'></span> " + data.clientes[c].celular + "</h3>";
 			}
 
 			html += "<h3 class='resultado-direccion'><span class='icon-location'></span> " + data.clientes[c].direccion + "</h3>";

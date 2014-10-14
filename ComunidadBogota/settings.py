@@ -69,6 +69,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'CBdb',
+#         'USER': 'andres',
+#         'PASSWORD': 'Bl00dBath',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 

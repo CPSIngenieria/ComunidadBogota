@@ -16,6 +16,8 @@ h1, figure, h2, h3
 	display: inline-block;
 	vertical-align: top;
 	width: 60%;
+	padding: 1em;
+	margin-left: 30%; 
 }
 
 #Banner
@@ -45,17 +47,19 @@ h1, figure, h2, h3
 #Barra-banner
 {
 	background: linear-gradient(90deg, #6F9F0B 0%, #a7b244 50%, #6F9F0B 100%);
-	border-radius: 1em 1em 0 0;
+	/* border-radius: 1em 1em 0 0; */
+	border-radius: 0 0 0 0;
 	bottom: 8px;
-	height: 30px;
+	height: 8%;
 	position: absolute;
 	right: 50px;
-	width: 200px;
+	width: 22%;
 }
 
 #Buscador
 {
 	background: linear-gradient( #2a8fbd 50%, #03456C);
+	position: relative;
 }
 
 #Contenedor
@@ -90,6 +94,15 @@ h1, figure, h2, h3
 #Filtro-palabra-clave
 {
 	margin: 0.5em 0;
+	transition: all ease 0.2s;
+}
+
+#Filtro-palabra-clave:hover
+{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 #Filtro-palabra-clave input
@@ -169,18 +182,48 @@ h1, figure, h2, h3
 	width: 0px;
 }
 
+#Pie-de-pagina
+{
+	background: linear-gradient(#AEC94B 50%, #83b020);
+}
+
+#Pie-de-pagina h4
+{
+	margin: 0;
+	padding: 0.4em;
+	color: #1b325f;
+}
+
 #Resultados
 {
 	padding: 1em;
 	position: relative;
 }
 
+#Redes-sociales
+{
+	background: linear-gradient( #03456C 50%, #065a98);
+	color: white;
+	padding: 0 0 1em 0;
+}
+
+#Redes-sociales h2
+{
+	margin: 0em 1em 1em 1em;
+	padding-top: 1em;
+}
+
+#Redes-sociales a
+{
+	color: white;
+	text-decoration: none;
+
+}
+
 #Rupert
 {
-	display: inline-block;
-	position: relative;
+	position: absolute;
 	top: -6.5em;
-	vertical-align: top;
 	width: 33%;
 }
 
@@ -205,11 +248,48 @@ h1, figure, h2, h3
 	color: white;
 	display: inline-block;
 	font-size: 0.8em;
-	margin: 0.1em 0.7em;
+	margin: 0.1em 0.1em;
 	padding: 0.2em 0.4em;
 	position: relative;
 	top: -6px;
 	box-shadow: 1px 1px 1px black;
+}
+
+.contenedor-red-social
+{
+	padding: 0em 0.8em 0.5em 0.8em;
+	display: inline-block;
+	vertical-align: top;
+	/* background: rgba(20,20,20,0.5); */
+	border-radius: 20px;
+	box-shadow: 1px 1px 1px white inset;
+	margin: 0.2em;
+	transition: all ease 0.2s;
+}
+
+.contenedor-red-social:hover
+{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.contenedor-red-social h3
+{
+	font-size: 1.2em;
+}
+
+.contenedor-red-social span
+{
+	font-size: 1.5em;
+	top: 8px;
+	position: relative;
+}
+
+.facebook
+{
+	background: #3b5998;
 }
 
 .filtro
@@ -217,6 +297,15 @@ h1, figure, h2, h3
 	display: inline-block;
 	margin: 0.2em;
 	vertical-align: top;
+	transition: all ease 0.2s;
+}
+
+.filtro:hover
+{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .filtro h2
@@ -249,12 +338,12 @@ h1, figure, h2, h3
 .indicador
 {
 	background: white;
-	border-radius: 8px;
+	border-radius: 50%;
 	display: inline-block;
-	height: 16px;
+	height: 10px;
 	margin: 0.4em;
 	transition: all ease 0.2s;
-	width: 16px;
+	width: 10px;
 }
 
 .info-adicional
@@ -310,7 +399,7 @@ h1, figure, h2, h3
 	padding: 1.5em;
 	position: absolute;
 	right: 0;
-	top: -20px;
+	top: -30px;
 	width: 100px;
 }
 
@@ -327,6 +416,7 @@ h1, figure, h2, h3
 	color: #0b486b;
 	display: inline-block;
 	font-size: 1.8em;
+	width: 85%;
 }
 
 .resultado-telefono
@@ -395,6 +485,11 @@ h1, figure, h2, h3
 	box-shadow: 1px 1px 1px black;
 }
 
+.twitter
+{
+	background: #55acee;
+}
+
 .ver-mas
 {
 	margin: 0.1em;
@@ -403,13 +498,272 @@ h1, figure, h2, h3
 	cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
-	body
+@media screen and (max-width: 1040px) {
+	
+	#App
 	{
-		color: red;
+		width: 60%;
+		padding: 1em 0.5em 1em 0.5em;
+		margin-left: 20%; 
 	}
+
+	.link-social
+	{
+		padding: 0.1em;
+		margin: 0.1em 0.2em;
+		width: 23%;
+		font-size: 0.9em;
+	}
+	
+	.resultado-logo
+	{
+		padding: 1.5em;
+		position: absolute;
+		right: 0;
+		top: -30px;
+	}
+
+	.resultado
+	{
+		margin-bottom: 2em;
+		padding-top: 4em;
+		padding-bottom: 2em;
+	}
+
 }
 
+@media screen and (max-width: 1000px) {
+	
+	#App
+	{
+		width: 65%;
+		padding: 1em 0.5em 1em 0.5em;
+		margin-left: 20%; 
+	}
+
+	#Rupert
+	{
+		position: absolute;
+		top: -5.5em;
+		width: 35%;
+	}
+	
+	#Barra-banner
+	{
+		height: 10%;
+	}
+
+	.resultado-logo
+	{
+		padding: 1.5em;
+		position: absolute;
+		right: 0;
+		top: -30px;
+	}
+
+}
+
+@media screen and (max-width: 800px) {
+	
+	.resultado-logo
+	{
+		border: #ff8800 solid 4px;
+		height: 80px;
+		padding: 1.5em;
+		right: 30%;
+		top: -40px;
+		width: 80px;
+	}
+
+	#App
+	{
+		width: 100%;
+		padding: 1em 0.1em 1em 0.1em;
+		margin:0; 
+	}
+
+	#Filtro
+	{
+		text-align: right;
+		padding-right: 1em; 
+	}
+
+	.link-social
+	{
+		padding: 0.1em;
+		margin: 0.1em 0.2em;
+		width: 40%;
+		font-size: 0.9em;
+	}
+
+}
+
+@media screen and (max-width: 850px) {
+
+	#Rupert
+	{
+		position: absolute;
+		top: -4em;
+		width: 40%;
+	}
+
+}
+
+
+@media screen and (max-width: 750px) {
+	
+	#Filtro
+	{
+		margin: 0.7em;
+		font-size: 0.8em;
+	}
+
+	#Barra-banner
+	{
+		height: 13%;
+	}
+	
+	.resultado-nombre
+	{
+		font-size: 1.5em;
+		width: 85%;
+		margin-bottom: 5px;
+	}
+
+	.resultado-telefono
+	{
+		font-size: 1.3em;
+		padding-left: 0.1em; 
+	}
+
+	.resultado-celular
+	{
+		font-size: 1.3em;
+	}
+
+	.resultado-direccion
+	{
+		font-size: 1.3em;
+	}
+	
+	.indicador
+	{
+		height: 10px;
+		margin: 0.2em;
+		width: 10px;
+	}
+
+}
+
+@media screen and (max-width: 650px) {
+
+	#Filtro-palabra-clave input
+	{
+		border-radius: 0.5em;
+		font-size: 1.1rem;
+		padding: 0.4em;
+		text-align: center;
+		width: 85%;
+	}
+
+	.resultado
+	{
+		text-align: center;
+	}
+
+	#Resultados
+	{
+		padding: 0.2em;
+	}
+	
+	.contenedor-red-social
+	{
+		padding: 0em 0.8em 0.5em 0.8em;
+		display: inline-block;
+		vertical-align: top;
+		/* background: rgba(20,20,20,0.5); */
+		border-radius: 20px;
+		box-shadow: 1px 1px 1px white inset;
+		margin: 0.2em;
+	}
+
+	.contenedor-red-social h3
+	{
+		font-size: 1em;
+	}
+
+	.contenedor-red-social span
+	{
+		font-size: 1.5em;
+		top: 8px;
+		position: relative;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+
+	#Resultados
+	{
+		padding: 0.05em;
+	}
+
+	#App
+	{
+		width: 90%;
+		padding: 1em 0.1em 1em 0.1em;
+		margin:0; 
+	}
+	
+	#Filtro
+	{
+		margin-bottom: 1.7em;
+		font-size: 0.8em;
+	}
+	
+
+	.link-social
+	{
+		width: 45%;
+		font-size: 0.9em;
+	}
+
+	.resultado-nombre
+	{
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 5px;
+	}
+
+	.resultado-telefono
+	{
+		font-size: 1.3em;
+		padding-left: 0.1em; 
+	}
+
+	.resultado-celular
+	{
+		font-size: 1.3em;
+	}
+
+	.resultado-direccion
+	{
+		font-size: 1.3em;
+	}
+
+	.resultado-informacion
+	{
+		padding: 1em 0.5em 0.5em 0.5em;
+	}
+	
+	.indicador
+	{
+		height: 8px;
+		width: 8px;
+		position: relative;
+		top: -3px;
+	}
+}
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes animacionBannerOne {
