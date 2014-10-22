@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'comunidades.views.ComunidadBogotaView', name='ComunidadBogotaView'),
     url(r'^busqueda/(?P<comunidad>[\w]+)/(?P<palabra_clave>[\w]+)/', 'comunidades.views.busqueda', name='busqueda'),
+    url(r'^tips/', 'comunidades.views.tips', name='tip'),
 
 )
 
