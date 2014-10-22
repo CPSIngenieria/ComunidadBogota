@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from clientes.models import Cliente
 from palabras_clave.models import PalabraClave
 from banners.models import Banner
+from rupertos.models import Ruperto
+from tips_comunidades.models import Tip_Comunidad
 
 from .models import Comunidad
 import json
@@ -12,10 +14,16 @@ import json
 
 def ComunidadBogotaView(request):
 
+	ruperto = Ruperto.objects.filter(activo=True)[0]
 	comunidades = Comunidad.objects.all()
 	palabras_clave = PalabraClave.objects.all()
-	banners = Banner.objects.filter( activo=True )[:3]
-	argumentos = { 'comunidades':comunidades, 'palabras_clave':palabras_clave, 'banners':banners }
+	banners = Banner.objects.filter( activo=True )[:5]
+	argumentos = { 
+		'comunidades':comunidades, 
+		'palabras_clave':palabras_clave, 
+		'banners':banners,
+		'ruperto':ruperto,
+	}
 
 	# import ipdb; ipdb.set_trace()
 
@@ -27,6 +35,10 @@ def busqueda(request, comunidad, palabra_clave):
 		matches = Cliente.objects.all()
 	else:	
 		matches = Cliente.objects.filter(comunidad__nombre=comunidad)
+
+	palabra_clave = palabra_clave.replace("_"," ")
+
+	# import ipdb; ipdb.set_trace()
 
 	filtro_clave = matches.filter(
 		palabras_clave_inscritas__descripcion__icontains=palabra_clave
@@ -62,6 +74,19 @@ def busqueda(request, comunidad, palabra_clave):
 			'inicio_horario_atencion':c.inicio_horario_atencion.hour,
 			'fin_horario_atencion':c.fin_horario_atencion.hour,
 			})
+
+	json_data = json.dumps(data)
+
+	return HttpResponse(json_data, content_type='application/json')
+
+def tips(request):
+	
+
+	tip = Tip_Comunidad.objects.get(id=1)
+
+	data = {
+		'tip': tip.tip,
+	}
 
 	json_data = json.dumps(data)
 

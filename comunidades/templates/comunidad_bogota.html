@@ -5,8 +5,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Comunidad Bogota</title>
+	<meta name="description" content="Encuentra lo que buscas, cerca de tu casa.">
+	<title>Comunidad Bogota: encuentra lo que buscas, cerca de tu casa.</title>
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="{% static 'bogota/css/normalize.css' %}" />
 	<link rel="stylesheet" href="{% static 'bogota/css/iconos.css' %}" />
 	<link rel="stylesheet" href="{% static 'bogota/css/comunidad_bogota.css' %}" />
@@ -16,7 +19,7 @@
 <body>
 	<div id="Contenedor">
 		<header id="Encabezado">
-			<a href="#">
+			<a href="/">
 				<h1>
 					<figure id="Logo-comunidad-bogota">
 						<img src="{% static 'bogota/imagenes/comunidad_bogota_logo.png' %}" alt="" width="305" />
@@ -24,40 +27,25 @@
 				</h1>
 			</a>
 		</header>
-		<section id="Banner">
-			<article id="Contenedor-banner">
-				<figure id="Fondo-banner">
-					<img src="{% static 'bogota/imagenes/bogota2.jpg' %}" alt="" width="1500">
-				</figure>
-				{% for b in banners %}
-				<figure class="imagen-banner" id="{% cycle 'Banner1' 'Banner2' 'Banner3' %}">
-					<img src="{{b.archivo_banner.url}}" alt="" width="1500">
-				</figure>
-				{% endfor %}
+		<section id="Contenedor-banner">
+			{% for b in banners %}
+			<article class="imagen-banner" id="{% cycle 'Banner1' 'Banner2' 'Banner3' 'Banner4' 'Banner5' %}">
+				<img src="{{b.archivo_banner.url}}" alt="" width="1500">
 			</article>
-			<div id="Barra-banner">
-				<div class="indicador" id='Indicador1'></div>
-				<div class="indicador" id='Indicador2'></div>
-				<div class="indicador" id='Indicador3'></div>
-				<div id="Pestana-derecha"></div>
-				<div id="Pestana-izquierda"></div>
+			{% endfor %}
+			<div id="Boton-banner-izquierdo" class="boton-banner"><span class="icon-arrow-back"></span></div>
+			<div id="Boton-banner-derecho"class="boton-banner"><span class="icon-arrow-forward"></span></div>
+			<div id="Barra-progreso-banner">
+				<div id="Progreso-banner">
+				</div>
 			</div>
 		</section>
 		<section id="Buscador">
 			<figure id="Rupert">
-				<img src="{% static 'bogota/imagenes/Rupert.png' %}" alt="" />
+				<img src="{{ruperto.archivo_imagen.url}}" alt="" />
 			</figure>
 			<section id="App">
 				<section id="Filtro">
-					<article id="Filtro-comunidad" class="filtro">
-						<h2>Selecciona una comunidad</h2>
-						<input list="comunidades" placeholder="Todas">
-						<datalist id="comunidades">
-							{% for c in comunidades %}
-							<option value="{{c.nombre}}">
-							{% endfor %}
-						</datalist> 
-					</article>		
 					<article id="Filtro-palabra-clave">
 						<input list="palabras-clave" placeholder="Que deseas encontrar?">
 						<datalist id="palabras-clave">
@@ -65,15 +53,27 @@
 							<option value="{{p.descripcion}}">
 							{% endfor %}
 						</datalist> 
+						<article id="Lupa"><span class='icon-search'></span></article>
 					</article>
+					<article id="Filtro-comunidad" class="filtro">
+						<input list="comunidades" placeholder="Comunidad">
+						<datalist id="comunidades">
+							{% for c in comunidades %}
+							<option value="{{c.nombre}}">
+							{% endfor %}
+						</datalist> 
+					</article>
+					<div id="Tips">
+						<p>Elige tu comunidad para mejores resultados</p>
+					</div>
 				</section>
 				<section id="Resultados">
-					<h3 id="Sin-resultados">Aun no hay resultados</h3>
+					<p id="Sin-resultados">Aun no hay resultados</p>
 				</section>	
 			</section>
 		</section>
 		<section id="Redes-sociales">
-			<h2>Visita nuestras redes sociales</h2>
+			<!-- <h2>Visita nuestras redes sociales</h2> -->
 			<a href="http://twitter.com/Comu_Bogota">
 				<article class="contenedor-red-social twitter">
 					<h3><span class="icon-social-twitter"></span> Comu_Bogota </h3>
