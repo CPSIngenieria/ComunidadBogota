@@ -3,7 +3,7 @@ body
 	/* font-family: 'Source Sans Pro', sans-serif; */
 	/* font-family: 'Indie Flower', cursive; */
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 22px;
+	font-size: 32px;
 	text-align: center;
 }
 
@@ -168,8 +168,7 @@ h1, figure, h2, h3
 {
 	margin: 0;
 	padding: 0.4em;
-	/* color: #1b325f; */
-	color: black;
+	color: #1b325f;
 }
 
 #Progreso-banner
