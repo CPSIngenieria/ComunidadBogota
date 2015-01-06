@@ -168,7 +168,8 @@ h1, figure, h2, h3
 {
 	margin: 0;
 	padding: 0.4em;
-	color: #1b325f;
+	/* color: #1b325f; */
+	color: black;
 }
 
 #Progreso-banner
