@@ -15,7 +15,19 @@
 	<link rel="stylesheet" href="{% static 'bogota/css/comunidad_bogota.css' %}" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="{% static 'bogota/js/comunidad_bogota.js' %}"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55463135-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </head>
+
 <body>
 	<div id="Contenedor">
 		<header id="Encabezado">
@@ -33,13 +45,14 @@
 				<img src="{{b.archivo_banner.url}}" alt="" width="1500">
 			</article>
 			{% endfor %}
-			<div id="Boton-banner-izquierdo" class="boton-banner"><span class="icon-arrow-back"></span></div>
-			<div id="Boton-banner-derecho"class="boton-banner"><span class="icon-arrow-forward"></span></div>
 			<div id="Barra-progreso-banner">
 				<div id="Progreso-banner">
 				</div>
 			</div>
 		</section>
+		<div id="Boton-banner-izquierdo" class="boton-banner"><span class="icon-arrow-back"></span></div>
+                <div id="Boton-banner-derecho"class="boton-banner"><span class="icon-arrow-forward"></span></div>
+
 		<section id="Buscador">
 			<figure id="Rupert">
 				<img src="{{ruperto.archivo_imagen.url}}" alt="" />
@@ -53,7 +66,7 @@
 							<option value="{{p.descripcion}}">
 							{% endfor %}
 						</datalist> 
-						<article id="Lupa"><span class='icon-search'></span></article>
+						<article id="Lupa"><img src="{% static 'bogota/imagenes/boton_busqueda_comunidad.png' %}" width="100" /></article>
 					</article>
 					<article id="Filtro-comunidad" class="filtro">
 						<input list="comunidades" placeholder="Comunidad">

@@ -20,7 +20,7 @@ function inicio () {
 	/*$('#comunidades option').on("input",buscar);*/
 
 	//Definimos algunas constantes:
-	window.TIEMPO_BANNER = 5000;
+	window.TIEMPO_BANNER = 10000;
 	window.TIEMPO_DEMONIO = 50;
 	window.TIEMPO_DEMONIO_TIPS = 3500;
 
@@ -79,7 +79,7 @@ function pasar_banner_forzado () {
 function actuzalizar_progreso_banner () {
 	
 	progreso = window.timer_banner.remaining_time();
-	valor_progreso_porcentual = (50 - (progreso / 100))*2 + '%'; 
+	valor_progreso_porcentual = (100 - (progreso / 100)) + '%'; 
 	$('#Progreso-banner').css('width', valor_progreso_porcentual);
 }
 
@@ -177,7 +177,7 @@ function Timer(callback, delay) {
 
 //Funcion que reanuda la cuenta del tiempo de banner:
 function reanudar_timer () {
-	$('.boton-banner').fadeOut();
+
 	window.idDemonio = window.setInterval(actuzalizar_progreso_banner, TIEMPO_DEMONIO);
 	window.timer_banner.resume();
 }
@@ -227,6 +227,8 @@ function buscar () {
 
 //Funcion que imprime los resultados en el DOM:
 function respuesta (data) {
+	
+	$('html,body').animate({scrollTop: $('#Filtro').offset().top -20}, 1000);	
 
 	//Inicializamos la respuesta:
 	html = "";
