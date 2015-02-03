@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'au9my5qkgs$xalzq&6bhe5-4nv9ui(z+e@kn^v+!##z9t(+(os'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'palabras_clave',
     'rupertos',
     'tips_comunidades',
+    'ruperton',
 )
 
 MIDDLEWARE_CLASSES = (
