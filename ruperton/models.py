@@ -1,4 +1,7 @@
+import mandrill
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Sorteo(models.Model):
 	
@@ -61,3 +64,44 @@ class Concursante(models.Model):
 	def __unicode__(self):
 		return self.nombre
 
+# @receiver(post_save, sender=Concursante, dispatch_uid="identificador_unico", weak=False)
+def envio_correo_terminos(sender, **kwargs):
+	
+	concursante = kwargs.get('instance')
+	nombre_concursante = concursante.nombre
+	email_concursante = concursante.correo	
+	link_terminos_concursante = "http://comunidadbogota.com"
+
+	# Enviamos un correo electronico con la informacion del concursante y el link de los terminos:
+	try:
+		mandrill_client = mandrill.Mandrill('_SoGpYeWNJ0p3ziJ1Hn75g')
+		template_content = [
+			{'content':nombre_concursante, 'name':'nombre_concursante'},
+			{'content':link_terminos_concursante, 'name':'link_terminos'},
+		]
+		message = {
+			'to':[
+				{
+					'email': email_concursante,
+					'name': nombre_concursante,
+					'type': 'to'
+				}
+			],
+			'merge_language':'handlebars',
+			'from_email':'andres@cpsingenieria.co',
+			'merge_vars':[
+				{
+					'rcpt':email_concursante,
+					'vars':[
+						{'content':nombre_concursante, 'name':'nombre_concursante'},
+						{'content':link_terminos_concursante, 'name':'link_terminos'},
+					]
+				}
+			]
+		}
+		result = mandrill_client.messages.send_template(template_name='Test_cb_terminos', 
+			template_content=template_content, message=message, async=False)
+	except mandrill.Error, e:
+		print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
+
+post_save.connect(envio_correo_terminos, sender=Concursante, dispatch_uid="identificador_unico", weak=False)
