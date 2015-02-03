@@ -43,6 +43,8 @@ class Sorteo(models.Model):
 
 	def __unicode__(self):
 		return str(self.id) + " - " + self.estado_sorteo
+	def nombre_sorteo(self):
+		return str(self.id) + " - " + self.estado_sorteo
 
 class Concursante(models.Model):
 	nombre = models.CharField(max_length=100)
