@@ -111,7 +111,8 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/root/ComunidadBogota/static/"
+STATIC_ROOT = "/home/andres/ComunidadBogota/static/"
+# STATIC_ROOT = "/root/ComunidadBogota/static/"
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])

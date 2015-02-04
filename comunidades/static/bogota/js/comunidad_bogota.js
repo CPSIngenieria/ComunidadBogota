@@ -49,7 +49,7 @@ function inicio () {
 	window.idDemonio = window.setInterval(actuzalizar_progreso_banner, TIEMPO_DEMONIO);
 
 	//Corremos el demonio que actualiza los mensajes de ayuda en el filtro de comunidad:
-	window.idDemonioTips = window.setInterval(lanzar_tip, TIEMPO_DEMONIO_TIPS);
+	//window.idDemonioTips = window.setInterval(lanzar_tip, TIEMPO_DEMONIO_TIPS);
 }
 
 function lanzar_tip () {

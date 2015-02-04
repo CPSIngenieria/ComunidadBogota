@@ -1,0 +1,8 @@
+<h1>Terminos y condiciones</h1>
+<p>Hola {{nombre_concursante}}</p>
+<form action="{% url 'ruperton_acepta_terminos' %}" method="post">
+	{% csrf_token %}
+	<input type="hidden" name="id_sorteo" id="id_sorteo" value="{{id_sorteo}}">
+	<input type="hidden" name="id_concursante" id="id_concursante" value="{{id_concursante}}">
+	<input type="submit" value="Acepto los terminos">
+</form>
