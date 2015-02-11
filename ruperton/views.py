@@ -12,7 +12,6 @@ def ruperton_sorteo(request, id_sorteo):
 	return render(request, 'ruperton/ruperton_home.html')
 
 def ruperton_terminos(request, id_concursante):
-
 	concursante = get_object_or_404(Concursante, pk=id_concursante)
 	id_sorteo = concursante.sorteo.id
 	sorteo = get_object_or_404(Sorteo, pk=id_sorteo)
