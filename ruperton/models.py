@@ -1,7 +1,9 @@
 import mandrill
+import mailchimp
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.contrib import messages
 
 class Residente(models.Model):
 	nombre = models.CharField( max_length=100)
@@ -104,8 +106,21 @@ def agregar_a_lista_de_correo(sender, **kwargs):
 	
 	residente = kwargs.get('instance')
 	nombre_residente = residente.nombre
-	
-	
+	correo_residente = residente.correo
+	try:
+		API_KEY = '890930f982cdd4aade758422f04ccc11-us10'
+		api_mailchimp = mailchimp.Mailchimp(API_KEY)
+		LIST_ID = '974af935f7'
+		api_mailchimp.lists.subscribe(LIST_ID,{'email':correo_residente})
+	except mailchimp.ListAlreadySubscribedError:
+		print("Este correo ya existe en la lista de mailchimp")
+	except mailchimp.Error, e:
+		print('Ocurrio un error en mailchimp: %s - %s' % (e.__class__, e))
+	print("Se agrego el email satisfactoriamente")
+
+post_save.connect(agregar_a_lista_de_correo, sender=Residente, dispatch_uid="identificador_unico", weak=False)
+
+
 # @receiver(post_save, sender=Concursante, dispatch_uid="identificador_unico", weak=False)
 # def envio_correo_terminos(sender, **kwargs):
 	
