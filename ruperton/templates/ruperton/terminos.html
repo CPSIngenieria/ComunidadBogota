@@ -1,8 +1,18 @@
-<h1>Terminos y condiciones</h1>
-<p>Hola {{nombre_concursante}}</p>
+{% extends "ruperton/ruperton_base.html" %}
+
+{% block titulo %}Terminos ruperton - {{nombre_concursante}}{% endblock titulo %}
+
+{% block contenido %}
+<h1>Hola {{nombre_concursante}}</h1>
+<h2>Por favor lee los terminos...</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p>
+
 <form action="{% url 'ruperton_acepta_terminos' %}" method="post">
 	{% csrf_token %}
-	<input type="hidden" name="id_sorteo" id="id_sorteo" value="{{id_sorteo}}">
+	<input type="hidden" name="correo_residente" id="correo_residente" value="{{correo_residente}}">
 	<input type="hidden" name="id_concursante" id="id_concursante" value="{{id_concursante}}">
 	<input type="submit" value="Acepto los terminos">
 </form>
+
+{% endblock contenido %}

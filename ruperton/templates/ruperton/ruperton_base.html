@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" value="Ruperton: Ganas porque ganas.">
+	<title>{% block titulo %} {% endblock titulo %}</title>
+	<link rel="stylesheet" href="{% static 'ruperton/css/ruperton_base.css' %}">
+	<script src="{% static 'ruperton/js/ruperton_base.js' %}"></script>
+</head>
+<body>
+	{% block contenido %}
+	{% endblock contenido %}
+</body>
+</html>

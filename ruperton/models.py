@@ -60,8 +60,9 @@ class Sorteo(models.Model):
 
 	estado_sorteo = models.CharField(max_length=50, choices=ESTADO_SORTEO, default=JUGANDO)
 	nombre = models.CharField(max_length=100)
-	fecha_inicio_registro_compras = models.DateTimeField()
-	fecha_cierre_registro_compras = models.DateTimeField()
+	id_lista_correo = models.CharField(max_length=100)
+	fecha_inicio_registro_compras = models.DateField()
+	fecha_cierre_registro_compras = models.DateField()
 	
 	fecha_sorteo_1 = models.DateField( blank = True )
 	estado_sorteo_1 = models.CharField(max_length=2, choices=ESTADOS_FECHAS, default=JUEGO)
@@ -101,11 +102,12 @@ class Concursante(models.Model):
 		return self.residente.nombre
 	def correo_concursante(self):
 		return self.residente.correo
+	def numeros_seleccionados(self):
+		return str(self.numero_ganador_1) + "," + str(self.numero_ganador_2) + "," + str(self.numero_ganador_3)
 
-def agregar_a_lista_de_correo(sender, **kwargs):
+def agregar_a_lista_de_correo_total(sender, **kwargs):
 	
 	residente = kwargs.get('instance')
-	nombre_residente = residente.nombre
 	correo_residente = residente.correo
 	try:
 		API_KEY = '890930f982cdd4aade758422f04ccc11-us10'
@@ -118,49 +120,48 @@ def agregar_a_lista_de_correo(sender, **kwargs):
 		print('Ocurrio un error en mailchimp: %s - %s' % (e.__class__, e))
 	print("Se agrego el email satisfactoriamente")
 
-post_save.connect(agregar_a_lista_de_correo, sender=Residente, dispatch_uid="identificador_unico", weak=False)
+post_save.connect(agregar_a_lista_de_correo_total, sender=Residente, dispatch_uid="identificador_unico", weak=False)
 
 
-# @receiver(post_save, sender=Concursante, dispatch_uid="identificador_unico", weak=False)
-# def envio_correo_terminos(sender, **kwargs):
+def envio_correo_terminos(sender, **kwargs):
 	
-# 	concursante = kwargs.get('instance')
-# 	nombre_concursante = concursante.nombre
-# 	email_concursante = concursante.correo	
-# 	acepto_terminos = concursante.acepto_terminos
-# 	link_terminos_concursante = "http://comunidadbogota.com/ruperton/terminos/%s/" % concursante.id
+	concursante = kwargs.get('instance')
+	nombre_concursante = concursante.residente.nombre
+	email_concursante = concursante.residente.correo	
+	acepto_terminos = concursante.acepto_terminos
+	link_terminos_concursante = "http://comunidadbogota.com/ruperton/terminos/%s/%s/" % (email_concursante, concursante.id)
 
-# 	# Enviamos un correo electronico con la informacion del concursante y el link de los terminos:
-# 	if not acepto_terminos:
-# 		try:
-# 			mandrill_client = mandrill.Mandrill('_SoGpYeWNJ0p3ziJ1Hn75g')
-# 			template_content = [
-# 				{'content':nombre_concursante, 'name':'nombre_concursante'},
-# 				{'content':link_terminos_concursante, 'name':'link_terminos'},
-# 			]
-# 			message = {
-# 				'to':[
-# 					{
-# 						'email': email_concursante,
-# 						'name': nombre_concursante,
-# 						'type': 'to'
-# 					}
-# 				],
-# 				'merge_language':'handlebars',
-# 				'from_email':'andres@cpsingenieria.co',
-# 				'merge_vars':[
-# 					{
-# 						'rcpt':email_concursante,
-# 						'vars':[
-# 							{'content':nombre_concursante, 'name':'nombre_concursante'},
-# 							{'content':link_terminos_concursante, 'name':'link_terminos'},
-# 						]
-# 					}
-# 				]
-# 			}
-# 			result = mandrill_client.messages.send_template(template_name='Test_cb_terminos', 
-# 				template_content=template_content, message=message, async=False)
-# 		except mandrill.Error, e:
-# 			print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
+	# Enviamos un correo electronico con la informacion del concursante y el link de los terminos:
+	if not acepto_terminos:
+		try:
+			mandrill_client = mandrill.Mandrill('_SoGpYeWNJ0p3ziJ1Hn75g')
+			template_content = [
+				{'content':nombre_concursante, 'name':'nombre_concursante'},
+				{'content':link_terminos_concursante, 'name':'link_terminos'},
+			]
+			message = {
+				'to':[
+					{
+						'email': email_concursante,
+						'name': nombre_concursante,
+						'type': 'to'
+					}
+				],
+				'merge_language':'handlebars',
+				'from_email':'andres@cpsingenieria.co',
+				'merge_vars':[
+					{
+						'rcpt':email_concursante,
+						'vars':[
+							{'content':nombre_concursante, 'name':'nombre_concursante'},
+							{'content':link_terminos_concursante, 'name':'link_terminos'},
+						]
+					}
+				]
+			}
+			result = mandrill_client.messages.send_template(template_name='Test_cb_terminos', 
+				template_content=template_content, message=message, async=True)
+		except mandrill.Error, e:
+			print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
 
-# post_save.connect(envio_correo_terminos, sender=Concursante, dispatch_uid="identificador_unico", weak=False)
+post_save.connect(envio_correo_terminos, sender=Concursante, dispatch_uid="identificador_unico_terminos", weak=False)

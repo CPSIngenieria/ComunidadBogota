@@ -14,7 +14,7 @@ class SorteoAdmin(admin.ModelAdmin):
 	fieldsets = [
 		('Informacion del sorteo', 
 			{'fields':
-				['nombre','estado_sorteo','fecha_inicio_registro_compras','fecha_cierre_registro_compras']
+				['nombre','estado_sorteo','id_lista_correo','fecha_inicio_registro_compras','fecha_cierre_registro_compras']
 			}
 		),
 		('Informacion fecha 1', 
@@ -45,10 +45,12 @@ class SorteoAdmin(admin.ModelAdmin):
 		'fecha_cierre_registro_compras'
 		)
 
+	filter_horizontal = ('ganador_sorteo_1', 'ganador_sorteo_2', 'ganador_registro_compras')
+
 class ConcursanteAdmin(admin.ModelAdmin):
 
 	list_display = (
-		'nombre_concursante','correo_concursante','establecimiento','acepto_terminos','sorteo',
+		'nombre_concursante','correo_concursante','establecimiento','acepto_terminos','sorteo','numeros_seleccionados',
 	)
 
 	search_fields = ['nombre_concursante','correo_concursante','establecimiento']

@@ -1,1 +1,18 @@
+{% extends "ruperton/ruperton_base.html" %}
+
+{% block titulo %}Ruperton{% endblock titulo %}
+
+{% block contenido %}
 <h1>Ruperton!</h1>
+<h2>Esta es la pagina principal del ruperton</h2>
+
+<div class="contenedor_sorteo">
+	{% for sorteo in sorteos %}
+	<h3>Sorteo:</h3>
+	<p class="nombre_sorteo">{{sorteo.nombre}}</p>
+	<h3>Estado:</h3>
+	<p class="estado_sorteo">{{sorteo.estado_sorteo}}</p>
+	{% endfor %}
+</div>
+
+{% endblock contenido %}

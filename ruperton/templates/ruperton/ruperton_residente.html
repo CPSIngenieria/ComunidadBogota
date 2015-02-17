@@ -1,0 +1,15 @@
+{% extends "ruperton/ruperton_base.html" %}
+
+{% block titulo %}Ruperton - {{residente.correo}}{% endblock titulo %}
+
+{% block contenido %}
+<h1>Hola {{residente.nombre}}</h1>
+<h2>Aca puedes ver el resumen de tus rupertones</h2>
+
+<div class="contenedor_residente">
+	{% for concursante in concursantes %}
+	<p>{{concursante}}</p>
+	<p>{{concursante.sorteo}}</p>
+	{% endfor %}
+</div>
+{% endblock contenido %}
