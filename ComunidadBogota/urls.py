@@ -14,7 +14,8 @@ urlpatterns = patterns('',
     url(r'^ruperton/compras/(?P<correo_residente>[\w\W]+)/$', 'ruperton.views.ruperton_compras', name='ruperton_compras'),
     
     url(r'^ruperton/(?P<correo_residente>[\w\W]+)/$', 'ruperton.views.ruperton_residente', name='ruperton_residente'),
-    
+    url(r'^login_view/$', 'ruperton.views.user_login', name='login_view'),
+    url(r'^logout_view/$', 'ruperton.views.user_logout', name='logout_view'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^busqueda/(?P<comunidad>[\w]+)/(?P<palabra_clave>[\w]+)/', 'comunidades.views.busqueda', name='busqueda'),
     url(r'^tips/', 'comunidades.views.tips', name='tip'),

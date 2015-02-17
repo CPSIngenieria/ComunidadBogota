@@ -30,7 +30,7 @@ nav ul li
 {
 	display: inline-block;
 	vertical-align: top;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	padding: 0.2rem 0.5rem;
 	background: orange;
 	color: white;
@@ -46,6 +46,11 @@ nav ul li
 	width: 60%;
 	padding: 0.3em;
 	margin-left: 30%; 
+}
+
+#barra_login
+{
+	text-align: right;
 }
 
 #Barra-progreso-banner

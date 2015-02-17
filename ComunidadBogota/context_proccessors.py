@@ -1,8 +1,8 @@
-from random import choice
 
-frases = ['Hola!', 'Soy Rupert', 'Busca una palabra clave']
+from ruperton.models import Sorteo
 
-def testCP(request):
-
-	# return {'usuario':'andresito'}
-	return {'usuario':choice(frases)}
+def rupertones(request):
+	sorteos = Sorteo.objects.all().order_by('-fecha_inicio_registro_compras')
+	context = {
+		'sorteos':sorteos,
+	}

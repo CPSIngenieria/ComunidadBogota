@@ -3,6 +3,8 @@ import mailchimp
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 from ruperton.models import Concursante, Sorteo, Residente, Compra
 
@@ -137,3 +139,34 @@ def ruperton_compras_registro(request):
 		'compras':compras,
 	}
 	return render(request, 'ruperton/compras.html', context)
+
+def user_login(request):
+
+	username = request.POST['correo']
+	password = request.POST['correo']
+
+	user = authenticate(username=username, password=password)
+
+	if user is not None:
+		# Se verifico el password para el usuario especificado.
+		if user.is_active:
+			# El usuario esta activo:
+			login(request, user)
+			return HttpResponseRedirect(reverse('ruperton_home'))
+		else: 
+			# El usuario no esta activo
+			context = {
+				'login_error_message':"Lo sentimos, su cuenta no esta activa.",
+			}
+			return render(request, 'ruperton/login_form.html', context)
+	else:
+		# EL sistema de autenticacion no fue capaz de autenticar al usuario:
+		context = {
+				'login_error_message':"Usuario o contrasena incorrectas",
+			}
+		return render(request, 'ruperton/login_form.html', context)
+
+def user_logout(request):
+
+	logout(request)
+	return HttpResponseRedirect(reverse('ComunidadBogotaView'))
