@@ -1,0 +1,70 @@
+
+#logo_ruperton
+{
+	margin-top: 2em;
+}
+
+.contenedor_ruperton
+{
+	border: red solid 1px;
+	background: #93D5F6;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.estado_ruperton_Jugando, .estado_ruperton_Cerrado
+{
+	border: 2px solid yellow;
+	padding: 0.3rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 700;
+}
+
+.estado_ruperton_Jugando
+{
+	background: green;
+}
+
+.estado_ruperton_Cerrado
+{
+	background: red;
+}
+
+.encabezado_ruperton
+{
+	background: #05166D;
+	padding-bottom: 1rem;
+}
+
+.encabezado_ruperton h3
+{
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+.encabezado_ruperton h3, .encabezado_ruperton p
+{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	color: white;
+}
+
+.fechas_ruperton p
+{
+	margin: 0 2em;
+}
+
+.info_ruperton
+{
+	padding: 1.5rem;
+}
+
+.nombre_ruperton
+{
+	background: orange;
+	border-radius: 0.5rem;
+	border: solid 2px green;
+	padding: 0.3rem 1.5rem;
+	font-weight: 700;
+}
