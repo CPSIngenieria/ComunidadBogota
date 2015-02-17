@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
-from ruperton.models import Concursante, Sorteo, Residente, Compra
+from ruperton.models import Concursante, Sorteo, Residente, Compra, Ganador
 
 def ruperton_home(request):		
 	sorteos = Sorteo.objects.all().order_by('-fecha_inicio_registro_compras')

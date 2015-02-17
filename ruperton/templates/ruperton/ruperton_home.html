@@ -28,13 +28,44 @@
 	</article>
 	<article class="sorteo_1">
 		<div class="info_sorteo">
-			<h3>Sorteo 1:</h3>
-			<p class="fecha_sorteo">{{sorteo.fecha_sorteo_1}}</p>
+			<div class="info_fecha_sorteo">
+				<h3>Sorteo 1:</h3>
+				<p class="fecha_sorteo">{{sorteo.fecha_sorteo_1}}</p>
+			</div>
 			<div class="info_premio_sorteo">
-				<h2 class="premio_sorteo">{{sorteo.premio_sorteo_1}}</h2>
+				<h2 class="premio_sorteo">${{sorteo.premio_sorteo_1}}</h2>
 				<p class="estado_sorteo_{{sorteo.estado_sorteo_1}}">{{sorteo.estado_sorteo_1}}</p>
 			</div>
 		</div>
+		<div class="numeros_ganadores">
+			<h3>Numeros ganadores:</h3>
+			<div class="numeros">
+				{% if sorteo.numero_ganador_1_sorteo_1 != None %}
+				<p>{{sorteo.numero_ganador_1_sorteo_1}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% if sorteo.numero_ganador_2_sorteo_1 != None %}
+				<p>{{sorteo.numero_ganador_2_sorteo_1}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% if sorteo.numero_ganador_3_sorteo_1 != None %}
+				<p>{{sorteo.numero_ganador_3_sorteo_1}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+			</div>
+		</div>
+		{% if sorteo.estado_sorteo_1 == 'Cerrado' %}
+		<div class="contenedor_ganador">
+			<h3>Ganador</h3>
+			<h4>Sorteo 1</h4>
+			{% for ganador in sorteo.ganador_sorteo_1.all %}
+			<img src="{{ ganador.foto.url }}" alt="" width="300">
+			{% endfor %}
+		</div>
+		{% endif %}
 	</article>
 </section>
 {% endfor %}

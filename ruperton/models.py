@@ -31,9 +31,10 @@ class Compra(models.Model):
 class Ganador(models.Model):
 	residente = models.ForeignKey(Residente)
 	foto = models.ImageField(upload_to='fotos_ganadores')
+	fecha = models.DateField(auto_now_add=True)
 
 	def __unicode__(self):
-		return self.residente.nombre
+		return self.residente.nombre + "-" + str(self.fecha)
 
 	def foto_admin(self):
 		return """
@@ -43,13 +44,11 @@ class Ganador(models.Model):
 
 class Sorteo(models.Model):
 	
-	JUEGO='JU'
-	ENTREGADO='EN'
-	ACUMULADO='AC'
+	JUEGO='Jugando'
+	ENTREGADO='Cerrado'
 	ESTADOS_FECHAS = (
 		(JUEGO, 'En juego'),
-		(ENTREGADO, 'Entregado'),
-		(ACUMULADO, 'Acumulado'),
+		(ENTREGADO, 'Cerrado'),
 	)
 
 	JUGANDO='Jugando'
@@ -66,22 +65,22 @@ class Sorteo(models.Model):
 	fecha_cierre_registro_compras = models.DateField()
 	
 	fecha_sorteo_1 = models.DateField( blank = True )
-	estado_sorteo_1 = models.CharField(max_length=2, choices=ESTADOS_FECHAS, default=JUEGO)
-	premio_sorteo_1 = models.PositiveIntegerField()
+	estado_sorteo_1 = models.CharField(max_length=50, choices=ESTADOS_FECHAS, default=JUEGO)
+	premio_sorteo_1 = models.CharField(max_length=20)
 	numero_ganador_1_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_2_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_3_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	ganador_sorteo_1 = models.ManyToManyField(Ganador, related_name='ganador_sorteo_1', blank=True)
 	
 	fecha_sorteo_2 = models.DateField( blank = True )
-	estado_sorteo_2 = models.CharField(max_length=2, choices=ESTADOS_FECHAS, default=JUEGO)
-	premio_sorteo_2 = models.PositiveIntegerField()
+	estado_sorteo_2 = models.CharField(max_length=50, choices=ESTADOS_FECHAS, default=JUEGO)
+	premio_sorteo_2 = models.CharField(max_length=20)
 	numero_ganador_1_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_2_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_3_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	ganador_sorteo_2 = models.ManyToManyField(Ganador, related_name='ganador_sorteo_2', blank=True)
 	
-	premio_registro_compras = models.PositiveIntegerField()
+	premio_registro_compras = models.CharField(max_length=20)
 	ganador_registro_compras = models.ManyToManyField(Ganador, related_name='ganador_sorteo_compras', blank=True)
 
 	def __unicode__(self):

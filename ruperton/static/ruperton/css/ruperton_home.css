@@ -6,10 +6,12 @@
 
 .contenedor_ruperton
 {
-	border: red solid 1px;
 	background: #93D5F6;
 	width: 90%;
 	margin: 0 auto;
+	margin-bottom: 2rem;
+	border-radius: 2rem;
+	overflow: hidden;
 }
 
 .estado_ruperton_Jugando, .estado_ruperton_Cerrado
@@ -26,6 +28,29 @@
 }
 
 .estado_ruperton_Cerrado
+{
+	background: red;
+}
+
+.estado_sorteo_Jugando, .estado_sorteo_Cerrado
+{
+	border: 2px solid yellow;
+	padding: 0.4rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 700;
+	color: white;
+	width: 40%;
+	margin: 0 auto;
+	position: relative;
+	top: -1rem;
+}
+
+.estado_sorteo_Jugando
+{
+	background: green;
+}
+
+.estado_sorteo_Cerrado
 {
 	background: red;
 }
@@ -60,6 +85,49 @@
 	padding: 1.5rem;
 }
 
+.info_sorteo
+{
+	padding: 1.5em;
+	padding-bottom: 0;
+}
+
+.info_fecha_sorteo
+{
+	position: relative;
+	top: 1.8em;
+	margin-right: 3em;
+}
+
+.info_sorteo .info_premio_sorteo, .info_sorteo .info_fecha_sorteo
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.info_fecha_sorteo h3, .info_fecha_sorteo .fecha_sorteo
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.info_sorteo h3
+{
+	text-transform: uppercase;
+	color: white;
+}
+
+.info_sorteo .fecha_sorteo
+{
+	border: 2px solid green;
+	border-radius: 0.5rem;
+	color: white;
+	margin: 0;
+	padding: 0.3rem 1rem;
+	position: relative;
+	top: -0.4rem;
+	background: orange;
+}
+
 .nombre_ruperton
 {
 	background: orange;
@@ -67,4 +135,45 @@
 	border: solid 2px green;
 	padding: 0.3rem 1.5rem;
 	font-weight: 700;
+}
+
+.numeros_ganadores
+{
+	margin-bottom: 0.5rem;
+}
+
+.numeros_ganadores h3, .numeros_ganadores .numeros
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.numeros_ganadores h3
+{
+	color: white;
+	text-transform: uppercase;
+	padding-top: 1rem;
+	padding-right: 1rem;
+}
+
+.numeros p
+{
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5rem 1rem;
+	background: white;
+	border-radius: 5px;
+	font-size: 2.5rem;
+	margin: 0;
+}
+
+.premio_sorteo
+{
+	padding: 2rem;
+	font-size: 3rem;
+	font-weight: 700;
+	border: white 2px solid;
+	background: #05166D;
+	color: white;
+	border-radius: 1rem;
 }
