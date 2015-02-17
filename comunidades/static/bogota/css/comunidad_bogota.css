@@ -51,6 +51,36 @@ nav ul li
 #barra_login
 {
 	text-align: right;
+	margin: 0.4rem 0.8rem;
+	font-size: 1.2rem;
+}
+
+#barra_login p
+{
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+#barra_login a
+{
+	color: yellow;
+}
+
+#barra_login form input[type='text']
+{
+	border-radius: 5px;
+	padding: 4px;
+	border: none;
+}
+
+#barra_login form input[type='submit']
+{
+	border: 2px yellow solid;
+	background: orange;
+	color: blue;
+	border-radius: 10px;
+	padding: 0.3rem 0.5rem 0.1rem 0.5rem;
 }
 
 #Barra-progreso-banner
