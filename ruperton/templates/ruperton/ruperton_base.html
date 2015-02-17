@@ -6,11 +6,42 @@
 	<meta charset="UTF-8">
 	<meta name="description" value="Ruperton: Ganas porque ganas.">
 	<title>{% block titulo %} {% endblock titulo %}</title>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{% static 'bogota/css/normalize.css' %}" />
 	<link rel="stylesheet" href="{% static 'ruperton/css/ruperton_base.css' %}">
 	<script src="{% static 'ruperton/js/ruperton_base.js' %}"></script>
 </head>
 <body>
+	<div id="Contenedor">
+	<header id="Encabezado">
+		<a href="/">
+			<h1>
+				<figure id="Logo-comunidad-bogota">
+					<img src="{% static 'bogota/imagenes/comunidad_bogota_logo.png' %}" alt="" width="305" />
+				</figure>
+			</h1>
+		</a>
+		<nav>
+			<ul>
+				<a href="/"><li>Buscador</li></a>
+				<a href="{% url 'ruperton_home' %}"><li>Ruperton</li></a>
+				{% if user.email %}
+				<a href="{% url 'ruperton_residente' user.email %}"><li>Mi Ruperton</li></a>
+				{% else %}
+				<a href="{% url 'ruperton_home' %}"><li>Mi Ruperton</li></a>
+				{% endif %}
+				<a href="/"><li>Registra tus compras</li></a>
+			</ul>
+		</nav>
+	</header>
 	{% block contenido %}
 	{% endblock contenido %}
+	<footer id="Pie-de-pagina">
+		<h4>comunidadcedritos@hotmail.com</h4>
+		<h4>Telefono: 807 6679</h4>
+		<h4>Cel: 321 496 6493</h4>
+	</footer>
+	</div>
 </body>
 </html>

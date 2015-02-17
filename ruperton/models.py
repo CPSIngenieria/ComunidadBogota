@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 class Residente(models.Model):
 	nombre = models.CharField( max_length=100)
@@ -165,3 +166,11 @@ def envio_correo_terminos(sender, **kwargs):
 			print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
 
 post_save.connect(envio_correo_terminos, sender=Concursante, dispatch_uid="identificador_unico_terminos", weak=False)
+
+def crear_usuario(sender, **kwargs):
+	
+	residente = kwargs.get('instance')
+	correo_residente = residente.correo
+	User.objects.create_user(correo_residente,correo_residente,correo_residente)
+
+post_save.connect(crear_usuario, sender=Residente, dispatch_uid="identificador_unico_crear", weak=False)

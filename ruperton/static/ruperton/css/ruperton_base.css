@@ -1,4 +1,76 @@
 body
 {
-	background: pink;
+	/*font-family: 'Source Sans Pro', sans-serif;*/
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 22px;
+	text-align: center;
+}
+
+h1, figure, h2, h3
+{
+	margin: 0;
+	padding: 0;
+}
+
+nav
+{
+	position: absolute;
+	top: 100%;
+}
+
+nav ul
+{
+	margin: 0 0 0 1em;
+	padding: 0;
+	list-style: none;
+}
+
+nav ul li
+{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1.3rem;
+	padding: 0.2rem 0.5rem;
+	background: orange;
+	color: white;
+	border: 2px solid yellow;
+	border-radius: 0px 0px 5px 5px;
+	border-top: 0px;
+}
+
+#Contenedor
+{
+	overflow: hidden;
+	width: 100%;
+	background: #2a8fbd;
+}
+
+#Encabezado
+{
+	background: linear-gradient(#AEC94B 50%, #C7F464);
+	position: relative;
+}
+
+#Logo-comunidad-bogota
+{
+	padding: 0.2em 0.2em 0 0.2em;
+}
+
+#Logo-comunidad-bogota img
+{
+	max-width: 200px;
+	width: 100%;
+}
+
+#Pie-de-pagina
+{
+	background: linear-gradient(#AEC94B 50%, #83b020);
+	border-top: solid gray 4px;
+}
+
+#Pie-de-pagina h4
+{
+	margin: 0;
+	padding: 0.4em;
+	color: #1b325f;
 }

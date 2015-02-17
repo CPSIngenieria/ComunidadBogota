@@ -38,6 +38,18 @@
 					</figure>
 				</h1>
 			</a>
+			<nav>
+				<ul>
+					<a href="/"><li>Buscador</li></a>
+					<a href="{% url 'ruperton_home' %}"><li>Ruperton</li></a>
+					{% if user.email %}
+					<a href="{% url 'ruperton_residente' user.email %}"><li>Mi Ruperton</li></a>
+					{% else %}
+					<a href="{% url 'ruperton_home' %}"><li>Mi Ruperton</li></a>
+					{% endif %}
+					<a href="/"><li>Registra tus compras</li></a>
+				</ul>
+			</nav>
 		</header>
 		<section id="Contenedor-banner">
 			{% for b in banners %}

@@ -13,6 +13,32 @@ h1, figure, h2, h3
 	padding: 0;
 }
 
+nav
+{
+	position: absolute;
+	top: 100%;
+}
+
+nav ul
+{
+	margin: 0 0 0 1em;
+	padding: 0;
+	list-style: none;
+}
+
+nav ul li
+{
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1.3rem;
+	padding: 0.2rem 0.5rem;
+	background: orange;
+	color: white;
+	border: 2px solid yellow;
+	border-radius: 0px 0px 5px 5px;
+	border-top: 0px;
+}
+
 #App
 {
 	display: inline-block;
@@ -61,6 +87,7 @@ h1, figure, h2, h3
 	width: 90%;
 	overflow: hidden;
 	margin: 0 auto;
+	margin-top: 2em;
 }
 
 #Contenedor-banner:before
@@ -73,6 +100,7 @@ h1, figure, h2, h3
 #Encabezado
 {
 	background: linear-gradient(#AEC94B 50%, #C7F464);
+	position: relative;
 }
 
 #Filtro
