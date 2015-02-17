@@ -1,0 +1,27 @@
+{% extends "ruperton/ruperton_base.html" %}
+
+{% block titulo %}Compras ruperton - {{residente.nombre}}{% endblock titulo %}
+
+{% block contenido %}
+<h2>Compras</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p>
+
+<h3>Registra tu compra</h3>
+<form action="{% url 'ruperton_compras_registro' %}" method="post">
+	{% csrf_token %}
+	<label for="establecimiento">Establecimiento</label>
+	<input type="text" name="establecimiento" id="establecimiento">
+	<label for="monto">Monto</label>
+	<input type="text" name="monto" id="monto">
+	<input type="hidden" name="correo_residente" id="correo_residente" value="{{residente.correo}}">
+	<input type="submit" value="Registrar">
+</form>
+
+{% for compra in compras %}
+<p>{{compra.establecimiento}}</p>
+<p>{{compra.monto}}</p>
+<p>{{compra.fecha_registro}}</p>
+{% endfor %}
+
+{% endblock contenido %}

@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 
-from ruperton.models import Concursante, Sorteo, Residente
+from ruperton.models import Concursante, Sorteo, Residente, Compra
 
 def ruperton_home(request):		
 	sorteos = Sorteo.objects.all().order_by('-fecha_inicio_registro_compras')
@@ -113,3 +113,27 @@ def ruperton_acepta_terminos(request):
 		return render(request, 'ruperton/terminos_aceptados.html')
 	else:
 		return render(request, 'ruperton/terminos_aceptados.html')
+
+def ruperton_compras(request, correo_residente):
+	residente = get_object_or_404(Residente, correo=correo_residente)
+	compras = Compra.objects.filter(residente=residente)
+	context = {
+		'residente':residente,
+		'compras':compras,
+	}
+	return render(request, 'ruperton/compras.html', context)
+
+def ruperton_compras_registro(request):
+	correo_residente = request.POST['correo_residente']
+	establecimiento = request.POST['establecimiento']
+	monto = request.POST['monto']
+
+	residente = get_object_or_404(Residente, correo=correo_residente)
+	nueva_compra = Compra(establecimiento=establecimiento, monto=monto, residente=residente)
+	nueva_compra.save()
+	compras = Compra.objects.filter(residente=residente)
+	context = {
+		'residente':residente,
+		'compras':compras,
+	}
+	return render(request, 'ruperton/compras.html', context)
