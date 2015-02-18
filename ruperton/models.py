@@ -111,9 +111,9 @@ def agregar_a_lista_de_correo_total(sender, **kwargs):
 	residente = kwargs.get('instance')
 	correo_residente = residente.correo
 	try:
-		API_KEY = '890930f982cdd4aade758422f04ccc11-us10'
+		API_KEY = '1f86e78c19bf0dea21f39928412e0bb4-us10'
 		api_mailchimp = mailchimp.Mailchimp(API_KEY)
-		LIST_ID = '974af935f7'
+		LIST_ID = 'b5a9d348cc'
 		api_mailchimp.lists.subscribe(LIST_ID,{'email':correo_residente})
 	except mailchimp.ListAlreadySubscribedError:
 		print("Este correo ya existe en la lista de mailchimp")
@@ -128,17 +128,23 @@ def envio_correo_terminos(sender, **kwargs):
 	
 	concursante = kwargs.get('instance')
 	nombre_concursante = concursante.residente.nombre
-	email_concursante = concursante.residente.correo	
+	email_concursante = concursante.residente.correo
+	numero_1 = concursante.numero_ganador_1	
+	numero_2 = concursante.numero_ganador_2	
+	numero_3 = concursante.numero_ganador_3	
 	acepto_terminos = concursante.acepto_terminos
 	link_terminos_concursante = "http://comunidadbogota.com/ruperton/terminos/%s/%s/" % (email_concursante, concursante.id)
 
 	# Enviamos un correo electronico con la informacion del concursante y el link de los terminos:
 	if not acepto_terminos:
 		try:
-			mandrill_client = mandrill.Mandrill('_SoGpYeWNJ0p3ziJ1Hn75g')
+			mandrill_client = mandrill.Mandrill('zR3BBjwQJM2qv8IiJe6Scg')
 			template_content = [
 				{'content':nombre_concursante, 'name':'nombre_concursante'},
 				{'content':link_terminos_concursante, 'name':'link_terminos'},
+				{'content':numero_1, 'name':'numero_1'},
+				{'content':numero_2, 'name':'numero_2'},
+				{'content':numero_3, 'name':'numero_3'},
 			]
 			message = {
 				'to':[
@@ -149,18 +155,21 @@ def envio_correo_terminos(sender, **kwargs):
 					}
 				],
 				'merge_language':'handlebars',
-				'from_email':'andres@cpsingenieria.co',
+				'from_email':'comunidadcedritos@hotmail.com',
 				'merge_vars':[
 					{
 						'rcpt':email_concursante,
 						'vars':[
 							{'content':nombre_concursante, 'name':'nombre_concursante'},
 							{'content':link_terminos_concursante, 'name':'link_terminos'},
+							{'content':numero_1, 'name':'numero_1'},
+							{'content':numero_2, 'name':'numero_2'},
+							{'content':numero_3, 'name':'numero_3'},
 						]
 					}
 				]
 			}
-			result = mandrill_client.messages.send_template(template_name='Test_cb_terminos', 
+			result = mandrill_client.messages.send_template(template_name='Terminos_ruperton', 
 				template_content=template_content, message=message, async=True)
 		except mandrill.Error, e:
 			print 'A mandrill error occurred: %s - %s' % (e.__class__, e)

@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required 
 
 from ruperton.models import Concursante, Sorteo, Residente, Compra, Ganador
 
@@ -15,6 +16,7 @@ def ruperton_home(request):
 	}
 	return render(request, 'ruperton/ruperton_home.html',context)
 
+@login_required(login_url='/ruperton/login/')
 def ruperton_residente(request, correo_residente):
 	residente = get_object_or_404(Residente, correo=correo_residente)
 	concursantes = Concursante.objects.filter(residente=residente, acepto_terminos=True).select_related('sorteo').order_by('-sorteo_id')
@@ -50,7 +52,7 @@ def ruperton_acepta_terminos(request):
 	concursante = Concursante.objects.filter(residente=residente).get(pk=id_concursante)
 
 	try:
-		API_KEY = '890930f982cdd4aade758422f04ccc11-us10'
+		API_KEY = '1f86e78c19bf0dea21f39928412e0bb4-us10'
 		api_mailchimp = mailchimp.Mailchimp(API_KEY)
 		LIST_ID = concursante.sorteo.id_lista_correo
 		api_mailchimp.lists.subscribe(LIST_ID,{'email':correo_residente})
@@ -82,10 +84,11 @@ def ruperton_acepta_terminos(request):
 			email_concursante = concursante_repetido.residente.correo
 
 			try:
-				mandrill_client = mandrill.Mandrill('_SoGpYeWNJ0p3ziJ1Hn75g')
+				mandrill_client = mandrill.Mandrill('zR3BBjwQJM2qv8IiJe6Scg')
 				template_content = [
 					{'content':nombre_concursante, 'name':'nombre_concursante'},
 					{'content':cantidad_participantes, 'name':'cantidad_participantes'},
+					{'content':email_concursante, 'name':'correo_concursante'},
 				]
 				message = {
 					'to':[
@@ -96,19 +99,20 @@ def ruperton_acepta_terminos(request):
 						}
 					],
 					'merge_language':'handlebars',
-					'from_email':'andres@cpsingenieria.co',
+					'from_email':'comunidadcedritos@hotmail.com',
 					'merge_vars':[
 						{
 							'rcpt':email_concursante,
 							'vars':[
 								{'content':nombre_concursante, 'name':'nombre_concursante'},
 								{'content':cantidad_participantes, 'name':'cantidad_participantes'},
+								{'content':email_concursante, 'name':'correo_concursante'},
 							]
 						}
 					]
 				}
-				result = mandrill_client.messages.send_template(template_name='Test_cb_participantes', 
-					template_content=template_content, message=message, async=False)
+				result = mandrill_client.messages.send_template(template_name='Concursantes', 
+					template_content=template_content, message=message, async=True)
 			except mandrill.Error, e:
 				print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
 

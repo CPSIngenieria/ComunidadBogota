@@ -33,7 +33,11 @@
 				{% else %}
 				<a href="{% url 'ruperton_login' %}"><li>Mi Ruperton</li></a>
 				{% endif %}
+				{% if user.email %}
 				<a href="{% url 'ruperton_compras' user.email %}"><li>Registra tus compras</li></a>
+				{% else %}
+				<a href="{% url 'ruperton_login' %}"><li>Registra tus compras</li></a>
+				{% endif %}
 			</ul>
 		</nav>
 	</header>
