@@ -4,6 +4,50 @@
 	margin-top: 2em;
 }
 
+.contenedor_foto_ganador
+{
+	margin-top: 1rem;
+}
+
+.contenedor_foto_ganador img
+{
+	border-radius: 1rem;
+	overflow: hidden;
+}
+
+.contenedor_ganador
+{
+	border: yellow solid 2px;
+	width: 60%;
+	background: green;
+	border-radius: 1rem;
+	margin: 1.2rem auto;
+	padding-bottom: 1rem;
+}
+
+.contenedor_ganador h3
+{
+	font-size: 3rem;
+	color: #05166D;
+	text-transform: uppercase;
+	margin-top: 1rem;
+}
+
+.contenedor_ganador h4
+{
+	font-size: 1.8rem;
+	color: #05166D;
+	text-transform: uppercase;
+	margin: 0;
+	margin-bottom: 0.5rem;
+}
+
+.contenedor_ganador p
+{
+	color: white;
+	margin: 0;
+}
+
 .contenedor_ruperton
 {
 	background: #93D5F6;
@@ -59,6 +103,7 @@
 {
 	background: #05166D;
 	padding-bottom: 1rem;
+	position: relative;
 }
 
 .encabezado_ruperton h3
@@ -88,7 +133,7 @@
 .info_sorteo
 {
 	padding: 1.5em;
-	padding-bottom: 0;
+	padding-bottom: 0.8rem;
 }
 
 .info_fecha_sorteo
@@ -176,4 +221,23 @@
 	background: #05166D;
 	color: white;
 	border-radius: 1rem;
+}
+
+.sorteo
+{
+	border-bottom: 2px solid yellow;
+}
+
+.ver_detalles
+{
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+}
+
+.ver_detalles p
+{
+	font-weight: 700;
+	text-decoration: underline;
+	cursor: pointer;
 }

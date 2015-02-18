@@ -14,19 +14,22 @@
 </figure>
 
 {% for sorteo in sorteos %}
-<section class="contenedor_ruperton">
+<section class="contenedor_ruperton ruperton_{{sorteo.estado_sorteo}}">
 	<article class="encabezado_ruperton">
 		<div class="info_ruperton">
 			<h3>Ruperton:</h3>
 			<p class="nombre_ruperton">{{sorteo.nombre}}</p>
 			<p class="estado_ruperton_{{sorteo.estado_sorteo}}">{{sorteo.estado_sorteo}}</p>
+			<div class="ver_detalles">
+				<p>Ver detalles</p>
+			</div>
 		</div>
 		<div class="fechas_ruperton">
 			<p><strong>Fecha inicio:</strong> {{sorteo.fecha_inicio_registro_compras}}</p>
 			<p><strong>Fecha cierre registro:</strong> {{sorteo.fecha_cierre_registro_compras}}</p>
 		</div>
 	</article>
-	<article class="sorteo_1">
+	<article class="sorteo">
 		<div class="info_sorteo">
 			<div class="info_fecha_sorteo">
 				<h3>Sorteo 1:</h3>
@@ -62,7 +65,79 @@
 			<h3>Ganador</h3>
 			<h4>Sorteo 1</h4>
 			{% for ganador in sorteo.ganador_sorteo_1.all %}
-			<img src="{{ ganador.foto.url }}" alt="" width="300">
+			<figure class="contenedor_foto_ganador">
+				<img src="{{ ganador.foto.url }}" alt="" width="300">
+			</figure>
+			<p class="nombre_ganador">Nombre: {{ganador.residente.nombre}}</p>
+			<p class="establecimiento_ganador">Establecimiento: {{ganador.establecimiento}}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</article>
+	<article class="sorteo">
+		<div class="info_sorteo">
+			<div class="info_fecha_sorteo">
+				<h3>Sorteo 2:</h3>
+				<p class="fecha_sorteo">{{sorteo.fecha_sorteo_2}}</p>
+			</div>
+			<div class="info_premio_sorteo">
+				<h2 class="premio_sorteo">${{sorteo.premio_sorteo_2}}</h2>
+				<p class="estado_sorteo_{{sorteo.estado_sorteo_2}}">{{sorteo.estado_sorteo_2}}</p>
+			</div>
+		</div>
+		<div class="numeros_ganadores">
+			<h3>Numeros ganadores:</h3>
+			<div class="numeros">
+				{% if sorteo.numero_ganador_1_sorteo_2 != None %}
+				<p>{{sorteo.numero_ganador_1_sorteo_2}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% if sorteo.numero_ganador_2_sorteo_2 != None %}
+				<p>{{sorteo.numero_ganador_2_sorteo_2}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% if sorteo.numero_ganador_3_sorteo_2 != None %}
+				<p>{{sorteo.numero_ganador_3_sorteo_2}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+			</div>
+		</div>
+		{% if sorteo.estado_sorteo_2 == 'Cerrado' %}
+		<div class="contenedor_ganador">
+			<h3>Ganador</h3>
+			<h4>Sorteo 2</h4>
+			{% for ganador in sorteo.ganador_sorteo_2.all %}
+			<figure class="contenedor_foto_ganador">
+				<img src="{{ ganador.foto.url }}" alt="" width="300">
+			</figure>
+			<p class="nombre_ganador">Nombre: {{ganador.residente.nombre}}</p>
+			<p class="establecimiento_ganador">Establecimiento: {{ganador.establecimiento}}</p>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</article>
+	<article class="sorteo">
+		<div class="info_sorteo">
+			<div class="info_fecha_sorteo">
+				<h3>Sorteo registro compras:</h3>
+			</div>
+			<div class="info_premio_sorteo">
+				<h2 class="premio_sorteo">${{sorteo.premio_registro_compras}}</h2>
+			</div>
+		</div>
+		{% if sorteo.ganador_registro_compras.all %}
+		<div class="contenedor_ganador">
+			<h3>Ganador</h3>
+			<h4>Registro compras</h4>
+			{% for ganador in sorteo.ganador_registro_compras.all %}
+			<figure class="contenedor_foto_ganador">
+				<img src="{{ ganador.foto.url }}" alt="" width="300">
+			</figure>
+			<p class="nombre_ganador">Nombre: {{ganador.residente.nombre}}</p>
+			<p class="establecimiento_ganador">Establecimiento: {{ganador.establecimiento}}</p>
 			{% endfor %}
 		</div>
 		{% endif %}

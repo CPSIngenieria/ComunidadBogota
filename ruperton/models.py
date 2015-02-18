@@ -32,6 +32,7 @@ class Ganador(models.Model):
 	residente = models.ForeignKey(Residente)
 	foto = models.ImageField(upload_to='fotos_ganadores')
 	fecha = models.DateField(auto_now_add=True)
+	establecimiento = models.CharField(max_length=100)
 
 	def __unicode__(self):
 		return self.residente.nombre + "-" + str(self.fecha)
