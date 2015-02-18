@@ -140,6 +140,9 @@ def ruperton_compras_registro(request):
 	}
 	return render(request, 'ruperton/compras.html', context)
 
+def ruperton_login(request):
+	return render(request, 'ruperton/login_form.html')
+
 def user_login(request):
 
 	username = request.POST['correo']
@@ -152,7 +155,7 @@ def user_login(request):
 		if user.is_active:
 			# El usuario esta activo:
 			login(request, user)
-			return HttpResponseRedirect(reverse('ruperton_home'))
+			return HttpResponseRedirect(reverse('ruperton_residente', kwargs={'correo_residente':request.POST['correo']}))
 		else: 
 			# El usuario no esta activo
 			context = {

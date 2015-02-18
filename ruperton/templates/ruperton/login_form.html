@@ -1,18 +1,28 @@
 {% extends "ruperton/ruperton_base.html" %}
+{% load staticfiles %}
 
 {% block titulo %}Ruperton login{% endblock titulo %}
 
+{% block estaticos %} 
+<link rel="stylesheet" href="{% static 'ruperton/css/ruperton_login.css' %}">
+{% endblock estaticos %}
+
 {% block contenido %}
-<h2>Para registrar tus compras, ingresa con tu correo electronico.</h2>
-<div id="barra_login">
-	<form action="{% url 'login_view' %}" method="post">
-		{% csrf_token %}
-		<label for="correo">Tu correo:</label>
-		<input type="text" name="correo" id="correo">
-		<input type="submit" value="Ingresar">
-	</form>
-	{% if login_error_message %}
-	<p>{{login_error_message}}</p>
-	{% endif %}
+
+<figure id="logo_ruperton">
+	<img src="{% static 'ruperton/img/logo_ruperton.png' %}" alt="" width="750">
+</figure>
+<div id="contenedor_login">
+	<h2>Para registrar tus compras, ingresa con tu correo electronico.</h2>
+	<div id="form_login">
+		<form action="{% url 'login_view' %}" method="post">
+			{% csrf_token %}
+			<input type="text" name="correo" id="correo" placeholder="Ingresa tu correo">
+			<input type="submit" value="Ingresar">
+		</form>
+		{% if login_error_message %}
+		<p>{{login_error_message}}</p>
+		{% endif %}
+	</div>	
 </div>
 {% endblock contenido %}

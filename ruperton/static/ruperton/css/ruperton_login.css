@@ -1,0 +1,37 @@
+#logo_ruperton
+{
+	margin-top: 1em;
+}
+
+#contenedor_login
+{
+}
+
+#contenedor_login h2
+{
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	margin-top: 1rem;
+}
+
+#form_login
+{
+	margin: 2rem 0;
+}
+
+#form_login input[type='text']
+{
+	width: 35%;
+	padding: 0.3rem 1rem;
+	border-radius: 0.5rem;
+	border: none;
+}
+
+#form_login input[type='submit']
+{
+	background: orange;
+	border-radius: 0.5rem;
+	border: 2px solid yellow;
+	padding: 0.3rem 2rem;
+}
