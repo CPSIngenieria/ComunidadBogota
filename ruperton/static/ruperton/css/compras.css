@@ -1,0 +1,85 @@
+#logo_ruperton
+{
+	margin-top: 2em;
+}
+
+.contenedor_registro
+{
+	border: transparent solid 1px;
+	width: 90%;
+	background: #93D5F6;
+	border-radius: 1rem;
+	margin: 0 auto;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+}
+
+.contenedor_registro h3
+{
+	margin: 2rem auto;
+	width: 30%;
+	text-transform: uppercase;
+	padding: 0.5rem;
+	border: 2px solid green;
+	color: white;
+	font-size: 1.5rem;
+	background: orange;
+	border-radius: 0.5rem;
+}
+
+.contenedor_registro label
+{
+	text-transform: uppercase;
+	font-size: 1.1rem;
+}
+
+.contenedor_registro input[type='text']
+{
+	border: none;
+	border-radius: 0.3rem;
+	margin-right: 0.5rem;
+	padding: 0.2rem 0.5rem;
+}
+
+.contenedor_registro input[type='submit']
+{
+	background: green;
+	border: solid 2px yellow;
+	color: white;
+	text-transform: uppercase;
+	border-radius: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	font-weight: 700;
+}
+
+.titulo_compras
+{
+	width: 30%;
+	border: 2px solid yellow;
+	text-transform: uppercase;
+	color: white;
+	margin: 1rem auto;
+	background: orange;
+	padding: 0.3rem 0.5rem;
+	border-radius: 0.4rem;
+}
+
+table
+{
+	margin: 2rem auto;
+}
+
+tr, td
+{
+	padding: 0.8rem 2.5rem;
+}
+
+th
+{
+	color: yellow;
+}
+
+td
+{
+	color: white;
+}

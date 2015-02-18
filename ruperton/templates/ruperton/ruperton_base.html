@@ -33,7 +33,7 @@
 				{% else %}
 				<a href="{% url 'ruperton_login' %}"><li>Mi Ruperton</li></a>
 				{% endif %}
-				<a href="/"><li>Registra tus compras</li></a>
+				<a href="{% url 'ruperton_compras' user.email %}"><li>Registra tus compras</li></a>
 			</ul>
 		</nav>
 	</header>
