@@ -1,0 +1,262 @@
+#logo_ruperton
+{
+	margin-top: 1em;
+}
+
+.contenedor_numeros_seleccionados
+{
+	background: #93D5F6;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+	border-radius: 2rem;
+	overflow: hidden;
+}
+
+.contenedor_numeros_seleccionados h3
+{
+	border: 2px solid green;
+	width: 50%;
+	margin: 0.8rem auto;
+	text-transform: uppercase;
+	padding: 0.5rem;
+	background: orange;
+	color: white;
+	border-radius: 0.5rem;
+}
+
+.contenedor_numeros_seleccionados h2, .nombre_ruperton_residente
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.nombre_ruperton_residente
+{
+	border: solid 2px green;
+	padding: 0.3rem 1rem;
+	border-radius: 0.5rem;
+	background: orange;
+	color: white;
+}
+
+.contenedor_numeros_seleccionados h2
+{
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	position: relative;
+	top: 2rem;
+}
+
+.numeros_seleccionados p
+{
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5rem 1rem;
+	background: white;
+	border-radius: 5px;
+	font-size: 5rem;
+	margin: 0;
+	font-weight: 700;
+}
+
+.contenedor_ruperton
+{
+	background: #93D5F6;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 2rem;
+	border-radius: 2rem;
+	overflow: hidden;
+}
+
+.estado_ruperton_Jugando, .estado_ruperton_Cerrado
+{
+	border: 2px solid yellow;
+	padding: 0.3rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 700;
+}
+
+.estado_ruperton_Jugando
+{
+	background: green;
+}
+
+.estado_ruperton_Cerrado
+{
+	background: red;
+}
+
+.estado_sorteo_Jugando, .estado_sorteo_Cerrado
+{
+	border: 2px solid yellow;
+	padding: 0.4rem 1.5rem;
+	border-radius: 0.5rem;
+	font-weight: 700;
+	color: white;
+	width: 40%;
+	margin: 0 auto;
+	position: relative;
+	top: -1rem;
+}
+
+.estado_sorteo_Jugando
+{
+	background: green;
+}
+
+.estado_sorteo_Cerrado
+{
+	background: red;
+}
+
+.encabezado_ruperton
+{
+	background: #05166D;
+	padding-bottom: 1rem;
+	position: relative;
+}
+
+.encabezado_ruperton h3
+{
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+.encabezado_ruperton h3, .encabezado_ruperton p
+{
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	color: white;
+}
+
+.fechas_ruperton p
+{
+	margin: 0 2em;
+}
+
+.info_ruperton
+{
+	padding: 1.5rem;
+}
+
+.info_sorteo
+{
+	padding: 1.5em;
+	padding-bottom: 0.8rem;
+}
+
+.info_fecha_sorteo
+{
+	position: relative;
+	top: 1.8em;
+	margin-right: 3em;
+}
+
+.info_sorteo .info_premio_sorteo, .info_sorteo .info_fecha_sorteo
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.info_fecha_sorteo h3, .info_fecha_sorteo .fecha_sorteo
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.info_sorteo h3
+{
+	text-transform: uppercase;
+	color: white;
+}
+
+.info_sorteo .fecha_sorteo
+{
+	border: 2px solid green;
+	border-radius: 0.5rem;
+	color: white;
+	margin: 0;
+	padding: 0.3rem 1rem;
+	position: relative;
+	top: -0.4rem;
+	background: orange;
+}
+
+.nombre_ruperton
+{
+	background: orange;
+	border-radius: 0.5rem;
+	border: solid 2px green;
+	padding: 0.3rem 1.5rem;
+	font-weight: 700;
+}
+
+.numeros_ganadores
+{
+	margin-bottom: 0.5rem;
+}
+
+.numeros_ganadores h3, .numeros_ganadores .numeros
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.numeros_ganadores h3
+{
+	color: white;
+	text-transform: uppercase;
+	padding-top: 1rem;
+	padding-right: 1rem;
+}
+
+.numeros p
+{
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5rem 1rem;
+	background: white;
+	border-radius: 5px;
+	font-size: 2.5rem;
+	margin: 0;
+}
+
+.presentacion
+{
+	color: white;
+	margin: 0.8rem;
+}
+
+.premio_sorteo
+{
+	padding: 2rem;
+	font-size: 3rem;
+	font-weight: 700;
+	border: white 2px solid;
+	background: #05166D;
+	color: white;
+	border-radius: 1rem;
+}
+
+.sorteo
+{
+	border-bottom: 2px solid yellow;
+}
+
+.ver_detalles
+{
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+}
+
+.ver_detalles p
+{
+	font-weight: 700;
+	text-decoration: underline;
+	cursor: pointer;
+}

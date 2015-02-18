@@ -17,7 +17,7 @@ def ruperton_home(request):
 
 def ruperton_residente(request, correo_residente):
 	residente = get_object_or_404(Residente, correo=correo_residente)
-	concursantes = Concursante.objects.filter(residente=residente).select_related('sorteo').order_by('-sorteo_id')
+	concursantes = Concursante.objects.filter(residente=residente, acepto_terminos=True).select_related('sorteo').order_by('-sorteo_id')
 	context = {
 		'residente':residente,
 		'concursantes':concursantes,

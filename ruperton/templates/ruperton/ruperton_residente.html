@@ -1,15 +1,123 @@
 {% extends "ruperton/ruperton_base.html" %}
+{% load staticfiles %}
 
 {% block titulo %}Ruperton - {{residente.correo}}{% endblock titulo %}
 
+{% block estaticos %} 
+<link rel="stylesheet" href="{% static 'ruperton/css/ruperton_residente.css' %}">
+<script src="{% static 'ruperton/js/ruperton_residente.js' %}"></script>
+{% endblock estaticos %}
+
 {% block contenido %}
-<h1>Hola {{residente.nombre}}</h1>
-<h2>Aca puedes ver el resumen de tus rupertones</h2>
+<figure id="logo_ruperton">
+	<img src="{% static 'ruperton/img/logo_ruperton.png' %}" alt="" width="750">
+</figure>
+
+<h1 class='presentacion'>Hola {{residente.nombre}}</h1>
+<h2 class='presentacion'>Aca puedes ver el resumen de tus rupertones</h2>
 
 <div class="contenedor_residente">
 	{% for concursante in concursantes %}
-	<p>{{concursante}}</p>
-	<p>{{concursante.sorteo}}</p>
+	<section class="contenedor_numeros_seleccionados">
+		<h3>Tus numeros seleccionados son:</h3>
+		<div class="numeros_seleccionados">
+			<p>{{ concursante.numero_ganador_1 }}</p>
+			<p>{{ concursante.numero_ganador_2 }}</p>
+			<p>{{ concursante.numero_ganador_3 }}</p>
+		</div>
+		<h2>Ruperton:</h2>
+		<p class='nombre_ruperton_residente'>{{concursante.sorteo.nombre}}</p>
+	</section>
+	<section class="contenedor_ruperton ruperton_{{concursante.sorteo.estado_sorteo}}">
+		<article class="encabezado_ruperton">
+			<div class="info_ruperton">
+				<h3>Ruperton:</h3>
+				<p class="nombre_ruperton">{{concursante.sorteo.nombre}}</p>
+				<p class="estado_ruperton_{{concursante.sorteo.estado_sorteo}}">{{concursante.sorteo.estado_sorteo}}</p>
+				<div class="ver_detalles">
+					<p>Ver detalles</p>
+				</div>
+			</div>
+			<div class="fechas_ruperton">
+				<p><strong>Fecha inicio:</strong> {{concursante.sorteo.fecha_inicio_registro_compras}}</p>
+				<p><strong>Fecha cierre registro:</strong> {{concursante.sorteo.fecha_cierre_registro_compras}}</p>
+			</div>
+		</article>
+		<article class="sorteo">
+			<div class="info_sorteo">
+				<div class="info_fecha_sorteo">
+					<h3>Sorteo 1:</h3>
+					<p class="fecha_sorteo">{{concursante.sorteo.fecha_sorteo_1}}</p>
+				</div>
+				<div class="info_premio_sorteo">
+					<h2 class="premio_sorteo">${{concursante.sorteo.premio_sorteo_1}}</h2>
+					<p class="estado_sorteo_{{concursante.sorteo.estado_sorteo_1}}">{{concursante.sorteo.estado_sorteo_1}}</p>
+				</div>
+			</div>
+			<div class="numeros_ganadores">
+				<h3>Numeros ganadores:</h3>
+				<div class="numeros">
+					{% if concursante.sorteo.numero_ganador_1_sorteo_1 != None %}
+					<p>{{concursante.sorteo.numero_ganador_1_sorteo_1}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+					{% if concursante.sorteo.numero_ganador_2_sorteo_1 != None %}
+					<p>{{concursante.sorteo.numero_ganador_2_sorteo_1}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+					{% if concursante.sorteo.numero_ganador_3_sorteo_1 != None %}
+					<p>{{concursante.sorteo.numero_ganador_3_sorteo_1}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+				</div>
+			</div>
+		</article>
+		<article class="sorteo">
+			<div class="info_sorteo">
+				<div class="info_fecha_sorteo">
+					<h3>Sorteo 2:</h3>
+					<p class="fecha_sorteo">{{concursante.sorteo.fecha_sorteo_2}}</p>
+				</div>
+				<div class="info_premio_sorteo">
+					<h2 class="premio_sorteo">${{concursante.sorteo.premio_sorteo_2}}</h2>
+					<p class="estado_sorteo_{{concursante.sorteo.estado_sorteo_2}}">{{concursante.sorteo.estado_sorteo_2}}</p>
+				</div>
+			</div>
+			<div class="numeros_ganadores">
+				<h3>Numeros ganadores:</h3>
+				<div class="numeros">
+					{% if concursante.sorteo.numero_ganador_1_sorteo_2 != None %}
+					<p>{{concursante.sorteo.numero_ganador_1_sorteo_2}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+					{% if concursante.sorteo.numero_ganador_2_sorteo_2 != None %}
+					<p>{{concursante.sorteo.numero_ganador_2_sorteo_2}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+					{% if concursante.sorteo.numero_ganador_3_sorteo_2 != None %}
+					<p>{{concursante.sorteo.numero_ganador_3_sorteo_2}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+				</div>
+			</div>
+		</article>
+		<article class="sorteo">
+			<div class="info_sorteo">
+				<div class="info_fecha_sorteo">
+					<h3>Sorteo registro compras:</h3>
+				</div>
+				<div class="info_premio_sorteo">
+					<h2 class="premio_sorteo">${{concursante.sorteo.premio_registro_compras}}</h2>
+				</div>
+			</div>
+		</article>
+	</section>
 	{% endfor %}
 </div>
 {% endblock contenido %}
