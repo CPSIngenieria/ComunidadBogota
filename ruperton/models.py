@@ -113,7 +113,7 @@ def agregar_a_lista_de_correo_total(sender, **kwargs):
 	try:
 		API_KEY = '1f86e78c19bf0dea21f39928412e0bb4-us10'
 		api_mailchimp = mailchimp.Mailchimp(API_KEY)
-		LIST_ID = 'b5a9d348cc'
+		LIST_ID = '8ccd5f4ac6'
 		api_mailchimp.lists.subscribe(LIST_ID,{'email':correo_residente})
 	except mailchimp.ListAlreadySubscribedError:
 		print("Este correo ya existe en la lista de mailchimp")
