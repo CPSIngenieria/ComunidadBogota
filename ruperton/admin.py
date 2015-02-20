@@ -20,14 +20,14 @@ class SorteoAdmin(admin.ModelAdmin):
 		('Informacion fecha 1', 
 			{'fields':
 				['fecha_sorteo_1','premio_sorteo_1','numero_ganador_1_sorteo_1',
-				'numero_ganador_2_sorteo_1','numero_ganador_3_sorteo_1','estado_sorteo_1',
+				'numero_ganador_2_sorteo_1','numero_ganador_3_sorteo_1','numero_ganador_4_sorteo_1','estado_sorteo_1',
 				'ganador_sorteo_1']
 			}
 		),
 		('Informacion fecha 2', 
 			{'fields':
 				['fecha_sorteo_2','premio_sorteo_2','numero_ganador_1_sorteo_2',
-				'numero_ganador_2_sorteo_2','numero_ganador_3_sorteo_2','estado_sorteo_2',
+				'numero_ganador_2_sorteo_2','numero_ganador_3_sorteo_2','numero_ganador_4_sorteo_2','estado_sorteo_2',
 				'ganador_sorteo_2']
 			}
 		),

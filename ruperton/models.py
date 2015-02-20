@@ -71,6 +71,7 @@ class Sorteo(models.Model):
 	numero_ganador_1_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_2_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_3_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
+	numero_ganador_4_sorteo_1 = models.PositiveIntegerField(blank=True, null=True)
 	ganador_sorteo_1 = models.ManyToManyField(Ganador, related_name='ganador_sorteo_1', blank=True)
 	
 	fecha_sorteo_2 = models.DateField( blank = True )
@@ -79,6 +80,7 @@ class Sorteo(models.Model):
 	numero_ganador_1_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_2_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	numero_ganador_3_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
+	numero_ganador_4_sorteo_2 = models.PositiveIntegerField(blank=True, null=True)
 	ganador_sorteo_2 = models.ManyToManyField(Ganador, related_name='ganador_sorteo_2', blank=True)
 	
 	premio_registro_compras = models.CharField(max_length=20)
@@ -92,6 +94,7 @@ class Concursante(models.Model):
 	numero_ganador_1 = models.PositiveIntegerField()
 	numero_ganador_2 = models.PositiveIntegerField()
 	numero_ganador_3 = models.PositiveIntegerField()
+	numero_ganador_4 = models.PositiveIntegerField()
 	acepto_terminos = models.BooleanField( default = False )
 	sorteo = models.ForeignKey(Sorteo)
 	residente = models.ForeignKey(Residente)
@@ -104,7 +107,7 @@ class Concursante(models.Model):
 	def correo_concursante(self):
 		return self.residente.correo
 	def numeros_seleccionados(self):
-		return str(self.numero_ganador_1) + "," + str(self.numero_ganador_2) + "," + str(self.numero_ganador_3)
+		return str(self.numero_ganador_1) + "," + str(self.numero_ganador_2) + "," + str(self.numero_ganador_3) + "," + str(self.numero_ganador_4)
 
 def agregar_a_lista_de_correo_total(sender, **kwargs):
 	
@@ -132,6 +135,7 @@ def envio_correo_terminos(sender, **kwargs):
 	numero_1 = concursante.numero_ganador_1	
 	numero_2 = concursante.numero_ganador_2	
 	numero_3 = concursante.numero_ganador_3	
+	numero_4 = concursante.numero_ganador_4	
 	acepto_terminos = concursante.acepto_terminos
 	link_terminos_concursante = "http://comunidadbogota.com/ruperton/terminos/%s/%s/" % (email_concursante, concursante.id)
 
@@ -145,6 +149,7 @@ def envio_correo_terminos(sender, **kwargs):
 				{'content':numero_1, 'name':'numero_1'},
 				{'content':numero_2, 'name':'numero_2'},
 				{'content':numero_3, 'name':'numero_3'},
+				{'content':numero_4, 'name':'numero_4'},
 			]
 			message = {
 				'to':[
@@ -165,6 +170,7 @@ def envio_correo_terminos(sender, **kwargs):
 							{'content':numero_1, 'name':'numero_1'},
 							{'content':numero_2, 'name':'numero_2'},
 							{'content':numero_3, 'name':'numero_3'},
+							{'content':numero_4, 'name':'numero_4'},
 						]
 					}
 				]

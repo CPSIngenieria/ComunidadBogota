@@ -58,6 +58,11 @@
 				{% else %}
 				<p>-</p>
 				{% endif %}
+				{% if sorteo.numero_ganador_4_sorteo_1 != None %}
+				<p>{{sorteo.numero_ganador_4_sorteo_1}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
 			</div>
 		</div>
 		{% if sorteo.estado_sorteo_1 == 'Cerrado' %}
@@ -100,6 +105,11 @@
 				{% endif %}
 				{% if sorteo.numero_ganador_3_sorteo_2 != None %}
 				<p>{{sorteo.numero_ganador_3_sorteo_2}}</p>
+				{% else %}
+				<p>-</p>
+				{% endif %}
+				{% if sorteo.numero_ganador_4_sorteo_2 != None %}
+				<p>{{sorteo.numero_ganador_4_sorteo_2}}</p>
 				{% else %}
 				<p>-</p>
 				{% endif %}

@@ -70,11 +70,13 @@ def ruperton_acepta_terminos(request):
 		numero_ganador_1 = concursante.numero_ganador_1
 		numero_ganador_2 = concursante.numero_ganador_2
 		numero_ganador_3 = concursante.numero_ganador_3
+		numero_ganador_4 = concursante.numero_ganador_4
 
 		listado_concursantes_mismos_numeros = Concursante.objects.filter(
 			numero_ganador_1=numero_ganador_1,
 			numero_ganador_2=numero_ganador_2,
 			numero_ganador_3=numero_ganador_3,
+			numero_ganador_4=numero_ganador_4,
 		)
 
 		cantidad_participantes = listado_concursantes_mismos_numeros.count()

@@ -24,6 +24,7 @@
 			<p>{{ concursante.numero_ganador_1 }}</p>
 			<p>{{ concursante.numero_ganador_2 }}</p>
 			<p>{{ concursante.numero_ganador_3 }}</p>
+			<p>{{ concursante.numero_ganador_4 }}</p>
 		</div>
 		<h2>Ruperton:</h2>
 		<p class='nombre_ruperton_residente'>{{concursante.sorteo.nombre}}</p>
@@ -72,6 +73,11 @@
 					{% else %}
 					<p>-</p>
 					{% endif %}
+					{% if concursante.sorteo.numero_ganador_4_sorteo_1 != None %}
+					<p>{{concursante.sorteo.numero_ganador_4_sorteo_1}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
 				</div>
 			</div>
 		</article>
@@ -101,6 +107,11 @@
 					{% endif %}
 					{% if concursante.sorteo.numero_ganador_3_sorteo_2 != None %}
 					<p>{{concursante.sorteo.numero_ganador_3_sorteo_2}}</p>
+					{% else %}
+					<p>-</p>
+					{% endif %}
+					{% if concursante.sorteo.numero_ganador_4_sorteo_2 != None %}
+					<p>{{concursante.sorteo.numero_ganador_4_sorteo_2}}</p>
 					{% else %}
 					<p>-</p>
 					{% endif %}
