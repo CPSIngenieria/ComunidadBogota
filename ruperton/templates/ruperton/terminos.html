@@ -12,10 +12,30 @@
 {% block contenido %}
 <div class="saludo">
 	<h1>Hola {{nombre_concursante}}</h1>
-	<h2>Por favor lee los terminos</h2>
+	<h2>Por favor lee y acepta los terminos</h2>
 </div>
 <div class="terminos">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p>
+	<ol>
+		<li>No se aceptan menores de edad.</li>
+		<li>Todas las personas que vayan a reclamar su premio deben presentar la cédula de ciudadanía, en caso de ser extranjero presentar documento de identificación correspondiente.</li>
+		<li>El bono redimible tiene un tiempo de expiración de 60 días, si el ganador no hace uso de este durante el tiempo estipulado perderá el beneficio.</li>
+		<li>Si no hace efectivo su bono en el tiempo establecido, comunidad cedritos podrá entregar el bono de manera dinámica a otros participantes.</li>
+		<li>El bono solamente es válido y redimible para comerciantes que aparezcan en el folleto de comunidad cedritos.</li>
+		<li>El residente tiene que respetar la escala de compra para llevarse el monto en sodexos o en bonos redimibles según lo pactado.</li>
+		<li>El premio es personal e intransferible.</li>
+		<li>El premio se entregará a la persona que se encuentre registrada con el número de la boleta ganadora y tendrán que coincidir con los datos previamente inscritos.</li>
+		<li>Se realizará la entrega del premio públicamente en el establecimiento donde adquirió  el Rupertón  ganador.</li>
+		<li>La distribución del Rupertón por parte de nosotros a los comerciantes, como de estos a los residentes se hará de forma gratuita.</li>
+		<li>Después de entregados los premios, comunidad cedritos no se hace responsable por la garantía de objetos o servicios adquiridos en los establecimientos afiliados.</li>
+		<li>Por ningún motivo se hace entrega de los premios en efectivo.</li>
+	</ol>
+	<p>FECHAS SORTEO CON LA LOTERIA <br>                                       
+	-05 DE MARZO DE 2015 <br>
+	-12 DE MARZO DE 2015 <br><br>
+
+
+	FECHAS DE CIERRE REGISTRO COMPRAS <br> 
+	-11 DE MARZO DE 2015</p>
 </div>
 
 <form action="{% url 'ruperton_acepta_terminos' %}" method="post">

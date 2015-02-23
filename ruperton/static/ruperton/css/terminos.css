@@ -9,6 +9,7 @@
 	width: 75%;
 	margin: 0 auto;
 	color: white;
+	text-align: left;
 }
 
 form input[type='submit']

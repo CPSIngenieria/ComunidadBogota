@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'au9my5qkgs$xalzq&6bhe5-4nv9ui(z+e@kn^v+!##z9t(+(os'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -111,8 +111,8 @@ STATICFILES_FINDERS = (
 )
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = "/home/andres/ComunidadBogota/static/"
-STATIC_ROOT = "/root/ComunidadBogota/static/"
+STATIC_ROOT = "/home/andres/ComunidadBogota/static/"
+# STATIC_ROOT = "/root/ComunidadBogota/static/"
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
