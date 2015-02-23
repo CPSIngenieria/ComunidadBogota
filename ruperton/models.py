@@ -19,7 +19,7 @@ class Residente(models.Model):
 class Compra(models.Model):
 	fecha_registro = models.DateTimeField(auto_now_add=True)
 	establecimiento = models.CharField(max_length=255)
-	monto = models.PositiveIntegerField()
+	monto = models.CharField(max_length=100)
 	residente = models.ForeignKey(Residente)
 
 	def __unicode__(self):
