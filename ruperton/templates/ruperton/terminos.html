@@ -1,12 +1,22 @@
 {% extends "ruperton/ruperton_base.html" %}
+{% load staticfiles %}
+
 
 {% block titulo %}Terminos ruperton - {{nombre_concursante}}{% endblock titulo %}
 
-{% block contenido %}
-<h1>Hola {{nombre_concursante}}</h1>
-<h2>Por favor lee los terminos...</h2>
+{% block estaticos %} 
+<link rel="stylesheet" href="{% static 'ruperton/css/terminos.css' %}">
+{% endblock estaticos %}
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p>
+
+{% block contenido %}
+<div class="saludo">
+	<h1>Hola {{nombre_concursante}}</h1>
+	<h2>Por favor lee los terminos</h2>
+</div>
+<div class="terminos">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, neque. Magni illo, quam exercitationem necessitatibus! Ex maiores sed voluptate, impedit tenetur explicabo vel, excepturi sint quis est adipisci, ratione debitis.</p>
+</div>
 
 <form action="{% url 'ruperton_acepta_terminos' %}" method="post">
 	{% csrf_token %}

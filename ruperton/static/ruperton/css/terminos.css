@@ -1,0 +1,23 @@
+.saludo
+{
+	margin: 3rem;
+	color: white;
+}
+
+.terminos
+{
+	width: 75%;
+	margin: 0 auto;
+	color: white;
+}
+
+form input[type='submit']
+{
+	margin: 2rem;
+	background: orange;
+	border: green 2px solid;
+	padding: 1rem;
+	font-size: 2rem;
+	color: white;
+	border-radius: 1rem;
+}

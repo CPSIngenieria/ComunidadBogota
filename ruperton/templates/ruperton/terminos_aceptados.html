@@ -1,2 +1,21 @@
-<h1>Gracias por aceptar los terminos</h1>
-<p>Puedes seguir el avance del sorteo en comunidadbogota.com/ruperton</p>
+{% extends "ruperton/ruperton_base.html" %}
+{% load staticfiles %}
+
+
+{% block titulo %}Terminos ruperton - {{nombre_concursante}}{% endblock titulo %}
+
+{% block estaticos %} 
+<link rel="stylesheet" href="{% static 'ruperton/css/terminos_aceptados.css' %}">
+{% endblock estaticos %}
+
+
+{% block contenido %}
+<figure id="logo_ruperton">
+	<img src="{% static 'ruperton/img/logo_ruperton.png' %}" alt="" width="750">
+</figure>
+
+<div class="gracias">
+	<h1>Gracias por aceptar los terminos</h1>
+	<p>Puedes seguir el avance del sorteo en <a href="/ruperton">comunidadbogota.com/ruperton</a></p>
+</div>
+{% endblock contenido %}
